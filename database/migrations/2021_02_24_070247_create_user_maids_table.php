@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaidDocumentsTable extends Migration
+class CreateUserMaidsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateMaidDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('maid_documents', function (Blueprint $table) {
+        Schema::create('user_maids', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('maid_id');
             $table->foreign('maid_id')->references('id')->on('maids')->onDelete('cascade');
-            $table->string('type');
-            $table->string('file_name');
-            $table->string('size');
-            $table->string('path');
-            $table->string('remark');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateMaidDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maid_documents');
+        Schema::dropIfExists('user_maids');
     }
 }

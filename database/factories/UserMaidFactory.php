@@ -1,18 +1,18 @@
 <?php
 
-namespace Database\Factories\Models;
+namespace Database\Factories;
 
-use App\Models\Models\Maid;
+use App\Models\UserMaid;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MaidFactory extends Factory
+class UserMaidFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Maid::class;
+    protected $model = UserMaid::class;
 
     /**
      * Define the model's default state.

@@ -1,18 +1,18 @@
 <?php
 
-namespace Database\Factories\Models;
+namespace Database\Factories;
 
-use App\Models\Models\MaidImage;
+use App\Models\Interview;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MaidImageFactory extends Factory
+class InterviewFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = MaidImage::class;
+    protected $model = Interview::class;
 
     /**
      * Define the model's default state.
