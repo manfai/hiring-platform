@@ -11,6 +11,7 @@
         "php": "^7.3|^8.0",
         "digitalcloud/laravel-model-notes": "^1.1",
         "digitalcloud/nova-resource-notes": "^1.4",
+        "dillingham/nova-button": "^1.0",
         "ebess/advanced-nova-media-library": "^3.4",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -18,13 +19,15 @@
         "laravel/framework": "^8.12",
         "laravel/nova": "*",
         "laravel/tinker": "^2.5",
+        "m4nn/cec-green": "*",
         "optimistdigital/nova-settings": "^3.1",
         "optimistdigital/nova-translatable": "^1.7",
         "shipping-docker/vessel": "^6.0",
         "spatie/laravel-activitylog": "^3.16",
         "spatie/laravel-tags": "^3.0",
         "spatie/laravel-translatable": "^4.6",
-        "spatie/nova-tags-field": "^3.1"
+        "spatie/nova-tags-field": "^3.1",
+        "vyuldashev/nova-permission": "^2.11"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -74,6 +77,18 @@
         {
             "type": "path",
             "url": "./nova"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/CecGreen"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/CecGreen"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/CecGreen"
         }
-    ]    
+    ]
 }

@@ -125,7 +125,7 @@ class SpecificMaid extends Resource
      */
     protected function imagesFields(){
         return [
-            Images::make('Main image', 'main') // second parameter is the media collection name
+            Images::make(__('Image'), 'main') // second parameter is the media collection name
             ->rules('required'), // validation rules
 
             Images::make('Images', 'maid_multi_collection') // second parameter is the media collection name
