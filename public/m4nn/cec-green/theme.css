@@ -5,10 +5,10 @@
   --primary-50: rgba(105, 150, 156, 0.5);
   --primary-30: rgba(105, 150, 156, 0.3);
   --primary-10: rgba(105, 150, 156, 0.1);
-  --logo: #356b72;
-  --sidebar-icon: #fcffff;
+  /* --logo: #356b72; */
+  /* --sidebar-icon: #fcffff; */
 }
-
+/* 
 .bg-grad-sidebar {
   background-image: -webkit-gradient(
     linear,
@@ -23,4 +23,4 @@
     rgb(105, 150, 156, 1),
     rgb(100, 173, 183)
   );
-}
+} */

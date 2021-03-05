@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use DigitalCloud\NovaResourceNotes\Fields\Notes;
+use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class SpecificMaid extends Resource
     public static $showColumnBorders = true;
 
     public static function label() {
-        return '指定女傭';
+        return __('Specific Maid');
     }
 
     
@@ -125,15 +126,8 @@ class SpecificMaid extends Resource
      */
     protected function imagesFields(){
         return [
-            Images::make(__('Image'), 'main') // second parameter is the media collection name
-            ->rules('required'), // validation rules
-
-            Images::make('Images', 'maid_multi_collection') // second parameter is the media collection name
-            ->fullSize() // full size column
-            ->hideFromIndex()
-            ->rules('required', 'size:1') // validation rules for the collection of images
-            // validation rules for the collection of images
-            ->singleImageRules('dimensions:min_width=100'),
+            Medialibrary::make(__('Image'), 'main_image', 'public', 'maid_main_image')->accept('image/*')->single(),     
+            Medialibrary::make(__('Images'), 'multi_image', 'public', 'maid_multi_image')->accept('image/*')    
         ];
     }
     /**

@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use DigitalCreative\CollapsibleResourceManager\CollapsibleResourceManager;
+use DigitalCreative\CollapsibleResourceManager\Resources\InternalLink;
+use DigitalCreative\CollapsibleResourceManager\Resources\NovaResource;
+use DigitalCreative\CollapsibleResourceManager\Resources\TopLevelResource;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
@@ -56,7 +60,13 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            // new Help,
+            new \App\Nova\Metrics\NewMaids(),
+            new \App\Nova\Metrics\NewInterviews(),
+            new \App\Nova\Metrics\MaidsPerPending(),
+            new \App\Nova\Metrics\MaidsPerReligion(),
+            new \App\Nova\Metrics\MaidsPerMaritalStatus(),
+            new \App\Nova\Metrics\MaidsPerStatus(),
         ];
     }
 
@@ -78,6 +88,44 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         return [
+            new CollapsibleResourceManager([
+                'navigation' => [
+                    TopLevelResource::make([
+                        'label' => __('Maids'),
+                        'resources' => [
+                            \App\Nova\Maid::class,
+                            \App\Nova\BookedMaid::class,
+                            \App\Nova\SpecificMaid::class,
+                            \App\Nova\Interview::class,
+                        ]
+                    ]),
+                    TopLevelResource::make([
+                        'label' => __('CS'),
+                        'resources' => [
+                            \App\Nova\User::class,
+                        ]
+                    ]),
+                    TopLevelResource::make([
+                        'label' => __('Admin'),
+                        'resources' => [
+                            \Vyuldashev\NovaPermission\Role::class,
+                            \Vyuldashev\NovaPermission\Permission::class,
+                            InternalLink::make([
+                                'label' => __('Logs'),
+                                'target' => '_self',
+                                'path' => '/logs',
+                            ]),
+                            InternalLink::make([
+                                'label' => __('Backups'),
+                                'target' => '_self',
+                                'path' => '/backups',
+                            ]),
+                        ]
+                    ]),
+                ]
+            ]),
+            \KABBOUCHI\LogsTool\LogsTool::make(),
+            \Spatie\BackupTool\BackupTool::make(),
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
         ];
     }

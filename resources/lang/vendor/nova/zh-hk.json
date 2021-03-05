@@ -438,6 +438,14 @@
   "Address": "地址",
   "Email": "電郵",
 
+  "Booked Maid": "留定女傭",
+  "Interview": "面試",
+  "Maid": "女傭",
+  "Maids": "女傭",
+  "Waiting Maid": "待聘女傭",
+  "Specific Maid": "指定女傭",
+
+  "CS": "客服",
 
   "Christianity": "基督教",
   "Islam": "伊斯蘭教",
@@ -460,5 +468,9 @@
   "Male": "男",
   "Female": "女",
 
-  "Notes": "備注"
+  "Notes": "備注",
+  "Logs": "系統日誌",
+  "Backups": "數據備份",
+  "Admin": "管理",
+  "Users": "全部用戶"
 }
