@@ -19,6 +19,11 @@ class NewInterviews extends Value
         return $this->count($request, Interview::class);
     }
 
+    public function name()
+    {
+        return __('New Interview');
+    }
+
     /**
      * Get the ranges available for the metric.
      *

@@ -16,7 +16,18 @@ class MaidsPerReligion extends Partition
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Maid::class, 'religion');
+        return $this->count($request, Maid::class, 'religion')->label(function ($value) {
+            switch ($value) {
+                case null:
+                    return 'None';
+                default:
+                    return __(ucfirst($value));
+            }
+        });
+    }
+    public function name()
+    {
+        return __('Religion');
     }
 
     /**

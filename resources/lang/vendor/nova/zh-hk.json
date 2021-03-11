@@ -67,7 +67,7 @@
   "Previous": "上一頁",
   "No Data": "沒有數據",
   "No Current Data": "目前沒有數據",
-  "No Prior Data": "No Prior Data",
+  "No Prior Data": "暫無數據",
   "No Increase": "No Increase",
   "No Results Found.": "沒有相關結果.",
   "Run Action": "執行操作",
@@ -446,6 +446,7 @@
   "Specific Maid": "指定女傭",
 
   "CS": "客服",
+  "Staff": "職員列表",
 
   "Christianity": "基督教",
   "Islam": "伊斯蘭教",
@@ -460,6 +461,10 @@
   "Contract": "已收合同",
   "Airline Ticket": "機票編號",
 
+  "Unemployed": "待聘女傭",
+  "New Interview": "新面試",
+  "New Maid": "新女傭",
+
   "Married": "已婚",
   "Widowed": "寡婦",
   "Separated": "分居",
@@ -472,5 +477,5 @@
   "Logs": "系統日誌",
   "Backups": "數據備份",
   "Admin": "管理",
-  "Users": "全部用戶"
+  "Users": "用戶列表"
 }

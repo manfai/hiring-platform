@@ -103,6 +103,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                         'label' => __('CS'),
                         'resources' => [
                             \App\Nova\User::class,
+                            \App\Nova\Admin::class,
                         ]
                     ]),
                     TopLevelResource::make([

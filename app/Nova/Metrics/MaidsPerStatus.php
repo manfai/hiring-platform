@@ -16,7 +16,18 @@ class MaidsPerStatus extends Partition
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Maid::class, 'status');
+        return $this->count($request, Maid::class, 'status')->label(function ($value) {
+            switch ($value) {
+                case null:
+                    return 'None';
+                default:
+                    return __(ucfirst($value));
+            }
+        });
+    }
+    public function name()
+    {
+        return __('Status');
     }
 
     /**

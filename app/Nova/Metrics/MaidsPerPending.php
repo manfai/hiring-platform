@@ -19,6 +19,11 @@ class MaidsPerPending extends Trend
         return $this->countByDays($request, Maid::where('pending',1));
     }
 
+    public function name()
+    {
+        return __('Unemployed');
+    }
+
     /**
      * Get the ranges available for the metric.
      *

@@ -19,6 +19,11 @@ class NewMaids extends Value
         return $this->count($request, Maid::class);
     }
 
+    public function name()
+    {
+        return __('New Maid');
+    }
+
     /**
      * Get the ranges available for the metric.
      *

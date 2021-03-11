@@ -16,7 +16,19 @@ class MaidsPerMaritalStatus extends Partition
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Maid::class, 'marital_status');
+        return $this->count($request, Maid::class, 'marital_status')->label(function ($value) {
+            switch ($value) {
+                case null:
+                    return 'None';
+                default:
+                    return __(ucfirst($value));
+            }
+        });
+    }
+
+    public function name()
+    {
+        return __('Marital Status');
     }
 
     /**

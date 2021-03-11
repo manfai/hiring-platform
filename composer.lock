@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8eecaf0459ad221860e1518e68bcf61",
+    "content-hash": "e2da1fe62854209cd79d25003b662712",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -290,6 +290,64 @@
                 "time"
             ],
             "time": "2021-02-06T03:37:44+00:00"
+        },
+        {
+            "name": "davidpiesse/nova-maintenance-mode",
+            "version": "0.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davidpiesse/nova-maintenance-mode.git",
+                "reference": "89cc669b21f4c396f583e1294aa34bd978931f6e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davidpiesse/nova-maintenance-mode/zipball/89cc669b21f4c396f583e1294aa34bd978931f6e",
+                "reference": "89cc669b21f4c396f583e1294aa34bd978931f6e",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "*",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "7.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Davidpiesse\\NovaMaintenanceMode\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Davidpiesse\\NovaMaintenanceMode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Piesse",
+                    "email": "piesse@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Enable and disable Maintenance Mode from within Laravel Nova",
+            "homepage": "https://github.com/davidpiesse/nova-maintenance-mode",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/davidpiesse/nova-maintenance-mode/issues",
+                "source": "https://github.com/davidpiesse/nova-maintenance-mode/tree/master"
+            },
+            "time": "2018-09-18T08:32:04+00:00"
         },
         {
             "name": "digital-creative/collapsible-resource-manager",
