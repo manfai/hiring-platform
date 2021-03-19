@@ -32,8 +32,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         Nova::routes()
                 ->withAuthenticationRoutes()
-                ->withPasswordResetRoutes()
                 ->register();
+
+                // ->withPasswordResetRoutes()
     }
 
     /**
@@ -91,11 +92,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             new CollapsibleResourceManager([
                 'navigation' => [
                     TopLevelResource::make([
-                        'label' => __('Maids'),
+                        'label' => __('Maid'),
                         'resources' => [
                             \App\Nova\Maid::class,
-                            \App\Nova\BookedMaid::class,
-                            \App\Nova\SpecificMaid::class,
                             \App\Nova\Interview::class,
                         ]
                     ]),

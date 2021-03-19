@@ -13,17 +13,17 @@ class CreateMaidDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('maid_documents', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('maid_id');
-            $table->foreign('maid_id')->references('id')->on('maids')->onDelete('cascade');
-            $table->string('type');
-            $table->string('file_name');
-            $table->string('size');
-            $table->string('path');
-            $table->string('remark');
-            $table->timestamps();
-        });
+        // Schema::create('maid_documents', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->unsignedBigInteger('maid_id');
+        //     $table->foreign('maid_id')->references('id')->on('maids')->onDelete('cascade');
+        //     $table->string('type');
+        //     $table->string('file_name');
+        //     $table->string('size');
+        //     $table->string('path');
+        //     $table->string('remark');
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -33,6 +33,6 @@ class CreateMaidDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maid_documents');
+        // Schema::dropIfExists('maid_documents');
     }
 }

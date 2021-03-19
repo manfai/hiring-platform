@@ -8,17 +8,17 @@ class CreateNotesTable extends Migration
 {
     public function up()
     {
-        Schema::create('notes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('note')->nullable();
-            $table->morphs('model');
-            $table->blameable();
-            $table->timestamps();
-        });
+        // Schema::create('notes', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->text('note')->nullable();
+        //     $table->morphs('model');
+        //     $table->blameable();
+        //     $table->timestamps();
+        // });
     }
 
     public function down()
     {
-        Schema::dropIfExists('notes');
+        // Schema::dropIfExists('notes');
     }
 }

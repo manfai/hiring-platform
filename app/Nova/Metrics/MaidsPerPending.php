@@ -16,7 +16,7 @@ class MaidsPerPending extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->countByDays($request, Maid::where('pending',1));
+        return $this->countByDays($request, Maid::where('unemployed',1));
     }
 
     public function name()

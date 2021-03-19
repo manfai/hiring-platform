@@ -37,6 +37,7 @@
         "spatie/laravel-translatable": "^4.6",
         "spatie/nova-backup-tool": "^4.1",
         "spatie/nova-tags-field": "^3.1",
+        "titasgailius/search-relations": "^1.0",
         "vyuldashev/nova-permission": "^2.11"
     },
     "require-dev": {

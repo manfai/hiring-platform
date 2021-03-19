@@ -9,7 +9,9 @@ use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Slug;
@@ -38,7 +40,7 @@ class Maid extends Resource
     public static $showColumnBorders = true;
 
     public static function label() {
-        return __('Waiting Maid');
+        return __('Maids');
     }
 
     
@@ -60,19 +62,82 @@ class Maid extends Resource
     public function fields(Request $request)
     {
         return [
-            // ID::make(__('ID'), 'id')->sortable(),
-            Slug::make(__('Code'), 'code'),
+            Slug::make(__('Code'), 'bio_no'),
+            
+            Text::make(__('Name'),'name')  
+             ->rules('required', 'min:2'),
+
+            Select::make(__('Jobs'),'jobs')  
+            ->rules('required')
+            ->options([
+                'nurse' => __('Nurse'),
+                'factory' => __('Factory'),
+                'construction' => __('Construction'),
+                'informal' => __('Informal'),
+                'other' => __('Other'),
+            ])->displayUsingLabels(),
+
+            Boolean::make(__('Unemployed'),'unemployed')->default(true),
+
+            Text::make(__('Confirm Date'),'cfm_date'),
+
+            Text::make(__('Employer Name'),'employer_name'),
+
+            Date::make(__('JPL Date'),'jpl_date'),
+
+            Heading::make(__('Medical')),
+            Date::make(__('Medical Date'),'medical_date'),
+            Text::make(__('Medical Result'),'medical_result'),
+
+            Heading::make(__('Passport')),
+            Text::make(__('Passport No'),'passport_no'),
+            Text::make(__('Passport Expire Date'),'passport_expired'),
+            
+            Heading::make(__('JO')),
+            Text::make(__('JO Type'),'jo_type'),
+            Date::make(__('JO Revice Date'),'jo_rcv_date'),
+            Text::make(__('JO No'),'jo_no'),
+
+            Heading::make(__('MOFA')),
+            Date::make(__('MOFA Revice Date'),'mofa_rcv_date'),
+            Text::make(__('MOFA No'),'mofa_no'),
+
+            Heading::make(__('Visa')),
+            Text::make(__('Visa In'),'visa_in'),
+            Text::make(__('Visa Out'),'visa_out'),
+        
+            Heading::make(__('Flight')),
+            Date::make(__('Flight Date'),'flight_date'),
+            Text::make(__('Flight No'),'flight_no')
+            ->rules('required', 'min:2')->hideFromIndex(),
+            Text::make(__('Flight ETA'),'flight_eta'),
+
+            Heading::make(__('Remark')),
+            KeyValue::make(__('Remark'),'remark')->hideFromIndex()->keyLabel(__('Label')) // Customize the key heading
+            ->valueLabel(__('Item')) // Customize the value heading
+            ->actionText(__('Add Item')), // Customize the "add row" button text,
+
+            new Panel(__('Personal Information'), $this->personalFields()),
 
             new Panel('Images', $this->imagesFields()),
 
-            Text::make(__('Name'),'name')  
-            ->rules('required', 'min:2'),
+         
 
-            Text::make(__('Full Name'),'full_name')  
-            ->rules('required', 'min:2')->hideFromIndex(),
+            // new Panel('Extra Information', $this->statusFields()),
 
-            Text::make(__('Email'),'email')  
-            ->rules('required', 'min:2')->hideFromIndex(),
+            Notes::make(__('Notes'),'notes')->hideFromIndex()
+        ];
+    }
+
+     /**
+     * Get the status fields for the resource.
+     *
+     * @return array
+     */
+    protected function personalFields(){
+        return [
+
+         
 
             Text::make(__('Address'),'address')  
             ->rules('required', 'min:2')->hideFromIndex(),
@@ -114,12 +179,9 @@ class Maid extends Resource
 
             Tags::make('Tags')->hideFromIndex(),
 
-            new Panel('Extra Information', $this->statusFields()),
 
-            Notes::make(__('Notes'),'notes')->hideFromIndex()
         ];
     }
-
      /**
      * Get the status fields for the resource.
      *
@@ -138,32 +200,7 @@ class Maid extends Resource
      */
     protected function statusFields(){
         return [
-            Number::make(__('Height'),'height')  
-            ->rules('required',),
-
-            Number::make(__('Weight'),'weight')  
-            ->rules('required'),
-
-            Select::make(__('Religion'),'religion')  
-            ->rules('required')
-            ->options([
-                'christianity' => __('Christianity'),
-                'islam' => __('Islam'),
-                'hinduism' => __('Hinduism'),
-                'buddhism' => __('Buddhism'),
-                'sikhism' => __('Sikhism'),
-                'judaism' => __('Judaism'),
-            ])->displayUsingLabels(),
-
-            Boolean::make(__('Visa'),'visa')->hideFromIndex(),
-            Boolean::make(__('Pig'),'eat_pig')->hideFromIndex(),
-            Boolean::make(__('Pending'),'pending')->hideFromIndex(),
-            Boolean::make(__('Contract'),'contract')->hideFromIndex(),
-            Text::make(__('Airline Ticket'),'airline_ticket')
-            ->help(
-                'Input Ticket No.'
-            )
-            ->rules('required', 'min:2')->hideFromIndex(),
+        
         ];
     }
 
