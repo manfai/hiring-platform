@@ -10,6 +10,9 @@ use Laravel\Nova\Lenses\Lens;
 
 class UnemployedMaids extends Lens
 {
+    public function name() {
+        return __('Waiting Maids');
+    }
     /**
      * Get the query builder / paginator for the lens.
      *

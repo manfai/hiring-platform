@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use DigitalCreative\CollapsibleResourceManager\CollapsibleResourceManager;
 use DigitalCreative\CollapsibleResourceManager\Resources\InternalLink;
+use DigitalCreative\CollapsibleResourceManager\Resources\LensResource;
 use DigitalCreative\CollapsibleResourceManager\Resources\NovaResource;
 use DigitalCreative\CollapsibleResourceManager\Resources\TopLevelResource;
 use Illuminate\Support\Facades\Gate;
@@ -94,6 +95,18 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     TopLevelResource::make([
                         'label' => __('Maid'),
                         'resources' => [
+                            LensResource::make(
+                                \App\Nova\Maid::class,
+                                \App\Nova\Lenses\UnemployedMaids::class
+                            ),
+                            LensResource::make(
+                                \App\Nova\Maid::class,
+                                \App\Nova\Lenses\BookedMaids::class
+                            ),
+                            LensResource::make(
+                                \App\Nova\Maid::class,
+                                \App\Nova\Lenses\SpecificMaids::class
+                            ),
                             \App\Nova\Maid::class,
                             \App\Nova\Interview::class,
                         ]

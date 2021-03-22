@@ -21,7 +21,12 @@ class Maid extends Model implements HasMedia
     use InteractsWithMedia;
 
     protected $casts = [
-        'dob' => 'date'
+        'dob' => 'date',
+        'jpl_date' => 'date',
+        'medical_date' => 'date',
+        'jo_rcv_date' => 'date',
+        'mofa_rcv_date' => 'date',
+        'flight_date' => 'date',
     ];
 
     protected static function boot()

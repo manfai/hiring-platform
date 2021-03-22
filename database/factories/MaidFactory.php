@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Models\Maid;
+use App\Models\Maid;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MaidFactory extends Factory
@@ -21,46 +21,72 @@ class MaidFactory extends Factory
      */
     public function definition()
     {
+        $newfaker = $this->faker;
+        $newfaker->addProvider(new \Faker\Provider\en_ZA\Person($this->faker));
+
         $job = $this->faker->randomElement([
             'nurse','factory','construction','informal','other'
         ]);
-        $unemployed = $this->faker->randomElement([
-            'true','false'
+        
+        $religion = $this->faker->randomElement([
+            'christianity','islam','hinduism','buddhism','sikhism','judaism'
         ]);
+        
+        $unemployed = $this->faker->randomElement([
+            true,false
+        ]);
+        $eat_pig = $this->faker->randomElement([
+            true,false
+        ]);
+        $status = $this->faker->randomElement([
+            "待聘女傭","直聘","已收合同但未有簽證者","請確定航程","已收合同但未有簽證，有預訂機者","已收合同和簽證，有預訂機票者","航程已被確定","機票在侯補單","已收合同和簽證，有預訂機票者"
+        ]);
+        $marital_status = $this->faker->randomElement([
+            'married','widowed','separated','divorced','single'
+        ]);
+
+        if($unemployed){
+            $visa['in'] = $this->faker->dateTimeThisYear();
+            $visa['out'] = $this->faker->dateTimeInInterval($startDate = '+2 years', $interval = '+ 5 days', $timezone = null);
+            $employer = $this->faker->name;
+        } else {
+            $visa['in'] = '';
+            $visa['out'] = '';
+            $employer = '';
+        }
+        
+
         return [
-            'bio_no' => $this->faker->name,
+            'bio_no' => $this->faker->userName,
             'name' => $this->faker->name,
             'jobs' => $job,
             'unemployed' => $unemployed,
             'cfm_date' => $this->faker->date,
-            'employer_name' => '',
-            'medical_date' => '',
+            'employer_name' => $employer,
+            'medical_date' => $this->faker->dateTime,
             'medical_result' => '',
-            'passport_no' => $this->faker->name,
-            'passport_expired' => $this->faker->name,
-            'jo_type' => $this->faker->name,
-            'jo_rcv_date' => $this->faker->name,
-            'jo_no' => $this->faker->name,
-            'mofa_rcv_date' => $this->faker->name,
-            'mofa_no' => $this->faker->name,
-            'visa_in' => $this->faker->name,
-            'visa_out' => $this->faker->name,
-            'jpl_date' => $this->faker->name,
-            'flight_date' => $this->faker->name,
-            'flight_no' => $this->faker->name,
-            'flight_eta' => $this->faker->name,
-            'marital_status' => $this->faker->name,
-            'address' => $this->faker->name,
-            'dob' => $this->faker->name,
-            'gender' => $this->faker->name,
-            'age' => $this->faker->name,
-            'height' => $this->faker->name,
-            'weight' => $this->faker->name,
-            'religion' => $this->faker->name,
-            'eat_pig' => $this->faker->name,
-            'status' => $this->faker->name,
-            'tags' => $this->faker->name,
-            'remark' => $this->faker->name,
+            'passport_no' => $newfaker->idNumber,
+            'passport_expired' => $this->faker->dateTime,
+            'jo_type' => 'other',
+            'jo_rcv_date' => $this->faker->dateTime,
+            'jo_no' => $this->faker->buildingNumber,
+            'mofa_rcv_date' => $this->faker->dateTime,
+            'mofa_no' => $this->faker->buildingNumber,
+            'visa_in' => $visa['in'],
+            'visa_out' => $visa['out'],
+            'jpl_date' => $this->faker->buildingNumber,
+            'flight_date' => $this->faker->dateTime,
+            'flight_no' => $this->faker->swiftBicNumber,
+            'flight_eta' => $this->faker->dateTime,
+            'marital_status' => $marital_status,
+            'address' => $this->faker->address,
+            'dob' => $this->faker->dateTime,
+            'gender' => 'female',
+            'height' => $this->faker->numberBetween(150,180),
+            'weight' => $this->faker->numberBetween(40,200),
+            'religion' => $religion,
+            'eat_pig' => $eat_pig,
+            'status' => $status,
         ];
     }
 }

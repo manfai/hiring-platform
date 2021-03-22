@@ -10,6 +10,10 @@ use Laravel\Nova\Lenses\Lens;
 
 class SpecificMaids extends Lens
 {
+    public function name() {
+        return __('Specific Maids');
+    }
+
     /**
      * Get the query builder / paginator for the lens.
      *
