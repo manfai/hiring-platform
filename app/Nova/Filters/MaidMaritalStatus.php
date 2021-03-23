@@ -13,6 +13,9 @@ class MaidMaritalStatus extends Filter
      * @var string
      */
     public $component = 'select-filter';
+    public function name(){
+        return __('Marital Status');
+    }
 
     /**
      * Apply the filter to the given query.
@@ -24,7 +27,7 @@ class MaidMaritalStatus extends Filter
      */
     public function apply(Request $request, $query, $value)
     {
-        return $query;
+        return $query->where('marital_status',$value);
     }
 
     /**
@@ -35,6 +38,12 @@ class MaidMaritalStatus extends Filter
      */
     public function options(Request $request)
     {
-        return [];
+        return [
+            __('Married') => 'married',
+            __('Widowed') => 'widowed',
+            __('Separated') => 'separated',
+            __('Divorced') => 'divorced',
+            __('Single') => 'single',
+        ];
     }
 }

@@ -13,8 +13,9 @@ class MaidJob extends Filter
      * @var string
      */
     public $component = 'select-filter';
-
-    /**
+    public function name(){
+        return __('Jobs');
+    }    /**
      * Apply the filter to the given query.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -24,7 +25,7 @@ class MaidJob extends Filter
      */
     public function apply(Request $request, $query, $value)
     {
-        return $query;
+        return $query->where('jobs',$value);
     }
 
     /**
@@ -35,6 +36,12 @@ class MaidJob extends Filter
      */
     public function options(Request $request)
     {
-        return [];
+        return [
+            __('Nurse') => 'nurse',
+            __('Factory') => 'factory',
+            __('Construction') => 'construction',
+            __('Informal') => 'informal',
+            __('Other') => 'other',
+        ];
     }
 }

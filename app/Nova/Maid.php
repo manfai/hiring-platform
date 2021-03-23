@@ -146,7 +146,15 @@ class Maid extends Resource
     protected function personalFields(){
         return [
 
-         
+            Select::make(__('Religion'),'religion')  
+            ->options([
+                'christianity'  => __('Christianity'),
+                'islam'         => __('Islam'),
+                'hinduism'      => __('Hinduism'),
+                'buddhism'      => __('Buddhism'),
+                'sikhism'       => __('Sikhism'),
+                'judaism'       => __('Judaism'),
+            ])->displayUsingLabels()->hideFromIndex(),
 
             Text::make(__('Address'),'address')  
             ->rules('required', 'min:2')->hideFromIndex(),
@@ -233,7 +241,7 @@ class Maid extends Resource
     public function filters(Request $request)
     {
         return [
-            new Filters\MaidAge,
+            new Filters\MaidReligion,
             new Filters\MaidEmployed,
             new Filters\MaidJob,
             new Filters\MaidMaritalStatus,

@@ -4,17 +4,18 @@ namespace App\Nova\Filters;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
+use DigitalCreative\PillFilter\PillFilter;
 
-class MaidEmployed extends Filter
+class MaidReligion extends PillFilter
 {
     /**
      * The filter's component.
      *
      * @var string
      */
-    public $component = 'select-filter';
+    // public $component = 'select-filter';
     public function name(){
-        return __('Unemployed');
+        return __('Religion');
     }
     /**
      * Apply the filter to the given query.
@@ -26,7 +27,7 @@ class MaidEmployed extends Filter
      */
     public function apply(Request $request, $query, $value)
     {
-        return $query->where('unemployed',$value);
+        return $query->whereIn('religion',$value);
     }
 
     /**
@@ -38,8 +39,12 @@ class MaidEmployed extends Filter
     public function options(Request $request)
     {
         return [
-            __('Unemployed') => 1,
-            __('Employed') => 0,
+            __('Christianity') => 'christianity',
+            __('Islam') => 'islam',
+            __('Hinduism') => 'hinduism',
+            __('Buddhism') => 'buddhism',
+            __('Sikhism') => 'sikhism',
+            __('Judaism') => 'judaism',
         ];
     }
 }

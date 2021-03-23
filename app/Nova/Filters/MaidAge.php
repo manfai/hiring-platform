@@ -4,15 +4,16 @@ namespace App\Nova\Filters;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
+use DigitalCreative\RangeInputFilter\RangeInputFilter;
 
-class MaidAge extends Filter
+class MaidAge extends RangeInputFilter
 {
     /**
      * The filter's component.
      *
      * @var string
      */
-    public $component = 'select-filter';
+    // public $component = 'select-filter';
 
     /**
      * Apply the filter to the given query.
@@ -24,7 +25,7 @@ class MaidAge extends Filter
      */
     public function apply(Request $request, $query, $value)
     {
-        return $query;
+        return $query->whereBetween('age',[$value['from'],$value['to']]);
     }
 
     /**
@@ -33,8 +34,12 @@ class MaidAge extends Filter
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function options(Request $request)
+    public function options(Request $request) : array
     {
-        return [];
+        return [
+            'fromPlaceholder' => 0,
+            'toPlaceholder' => 20,
+            'dividerLabel' => 'to',
+        ];
     }
 }
