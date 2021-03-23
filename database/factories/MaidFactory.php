@@ -50,9 +50,9 @@ class MaidFactory extends Factory
             $visa['out'] = $this->faker->dateTimeInInterval($startDate = '+2 years', $interval = '+ 5 days', $timezone = null);
             $employer = $this->faker->name;
         } else {
-            $visa['in'] = '';
-            $visa['out'] = '';
-            $employer = '';
+            $visa['in'] = NULL;
+            $visa['out'] = NULL;
+            $employer = NULL;
         }
         
 

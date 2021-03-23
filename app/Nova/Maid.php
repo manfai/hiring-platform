@@ -35,7 +35,16 @@ class Maid extends Resource
      *
      * @var string
      */
-    public static $title = 'code';
+    public static $title = 'bio_no';
+    /**
+     * Get the search result subtitle for the resource.
+     *
+     * @return string
+     */
+    public function subtitle()
+    {
+        return "Name: {$this->name}";
+    }
 
     public static $showColumnBorders = true;
 
@@ -50,7 +59,7 @@ class Maid extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id','bio_no','name'
     ];
 
     /**
@@ -81,17 +90,17 @@ class Maid extends Resource
 
             Text::make(__('Confirm Date'),'cfm_date'),
 
-            Text::make(__('Employer Name'),'employer_name'),
+            Text::make(__('Employer Name'),'employer_name')->hideFromIndex(),
 
-            Date::make(__('JPL Date'),'jpl_date'),
+            Date::make(__('JPL Date'),'jpl_date')->hideFromIndex(),
 
             Heading::make(__('Medical')),
             Date::make(__('Medical Date'),'medical_date'),
             Text::make(__('Medical Result'),'medical_result'),
 
             Heading::make(__('Passport')),
-            Text::make(__('Passport No'),'passport_no'),
-            Text::make(__('Passport Expire Date'),'passport_expired'),
+            Text::make(__('Passport No'),'passport_no')->hideFromIndex(),
+            Text::make(__('Passport Expire Date'),'passport_expired')->hideFromIndex(),
             
             Heading::make(__('JO')),
             Text::make(__('JO Type'),'jo_type'),
@@ -151,7 +160,7 @@ class Maid extends Resource
             ->options([
                 'M' => __('Male'),
                 'F' => __('Female'),
-            ])->displayUsingLabels(),
+            ])->displayUsingLabels()->hideFromIndex(),
 
             Select::make(__('Marital Status'),'marital_status')  
             ->rules('required')
@@ -161,7 +170,7 @@ class Maid extends Resource
                 'separated' => __('Separated'),
                 'divorced' => __('Divorced'),
                 'single' => __('Single'),
-            ])->displayUsingLabels(),
+            ])->displayUsingLabels()->hideFromIndex(),
 
             Select::make(__('Status'),'status')  
             ->rules('required')
@@ -177,7 +186,7 @@ class Maid extends Resource
                 "已收合同和簽證，有預訂機票者"=>"已收合同和簽證，有預訂機票者",
             ])->hideFromIndex(),
 
-            Tags::make('Tags')->hideFromIndex(),
+            // Tags::make('Tags')->hideFromIndex(),
 
 
         ];
@@ -190,7 +199,7 @@ class Maid extends Resource
     protected function imagesFields(){
         return [
             Medialibrary::make(__('Image'), 'main_image', 'public', 'maid_main_image')->accept('image/*')->single(),     
-            Medialibrary::make(__('Images'), 'multi_image', 'public', 'maid_multi_image')->accept('image/*')    
+            Medialibrary::make(__('Images'), 'multi_image', 'public', 'maid_multi_image')->accept('image/*')->hideFromIndex()
         ];
     }
     /**
@@ -223,7 +232,13 @@ class Maid extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new Filters\MaidAge,
+            new Filters\MaidEmployed,
+            new Filters\MaidJob,
+            new Filters\MaidMaritalStatus,
+            new Filters\MaidStatus,
+        ];
     }
 
     /**
@@ -235,6 +250,9 @@ class Maid extends Resource
     public function lenses(Request $request)
     {
         return [
+            new Lenses\UnemployedMaids(),
+            new Lenses\BookedMaids(),
+            new Lenses\SpecificMaids(),
         ];
     }
 

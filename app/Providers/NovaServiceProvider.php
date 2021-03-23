@@ -5,10 +5,11 @@ namespace App\Providers;
 use DigitalCreative\CollapsibleResourceManager\CollapsibleResourceManager;
 use DigitalCreative\CollapsibleResourceManager\Resources\InternalLink;
 use DigitalCreative\CollapsibleResourceManager\Resources\LensResource;
-use DigitalCreative\CollapsibleResourceManager\Resources\NovaResource;
 use DigitalCreative\CollapsibleResourceManager\Resources\TopLevelResource;
 use Illuminate\Support\Facades\Gate;
-use Laravel\Nova\Cards\Help;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Fields\Place;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -22,6 +23,23 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+        Nova::serving(function (ServingNova $event) {
+            \OptimistDigital\NovaSettings\NovaSettings::addSettingsFields([
+                Place::make(__('Address'), 'address'),
+                Text::make(__('City'),'city'),
+                Text::make(__('Head of Department'),'head_of_dept'),
+                Text::make(__('Phone Number'),'phone_no'),
+                Text::make(__('Fax Number'),'fax_no'),
+                Text::make(__('Email'),'email'),
+            ], [
+                'address' => 'string',
+                'city' => 'string',
+                'head_of_dept' => 'string',
+                'phone_no' => 'string',
+                'fax_no' => 'string',
+                'email' => 'string',
+            ]);
+        });
     }
 
     /**
@@ -32,10 +50,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function routes()
     {
         Nova::routes()
-                ->withAuthenticationRoutes()
-                ->register();
-
-                // ->withPasswordResetRoutes()
+        ->withAuthenticationRoutes()
+        ->register();
+        // ->withPasswordResetRoutes()
     }
 
     /**
@@ -95,6 +112,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     TopLevelResource::make([
                         'label' => __('Maid'),
                         'resources' => [
+                            \App\Nova\Maid::class,
                             LensResource::make(
                                 \App\Nova\Maid::class,
                                 \App\Nova\Lenses\UnemployedMaids::class
@@ -107,7 +125,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                                 \App\Nova\Maid::class,
                                 \App\Nova\Lenses\SpecificMaids::class
                             ),
-                            \App\Nova\Maid::class,
                             \App\Nova\Interview::class,
                         ]
                     ]),
@@ -140,6 +157,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             \KABBOUCHI\LogsTool\LogsTool::make(),
             \Spatie\BackupTool\BackupTool::make(),
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
+            \OptimistDigital\NovaSettings\NovaSettings::make(),
         ];
     }
 

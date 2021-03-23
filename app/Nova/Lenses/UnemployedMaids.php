@@ -3,7 +3,10 @@
 namespace App\Nova\Lenses;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\LensRequest;
 use Laravel\Nova\Lenses\Lens;
@@ -23,8 +26,22 @@ class UnemployedMaids extends Lens
     public static function query(LensRequest $request, $query)
     {
         return $request->withOrdering($request->withFilters(
-            $query
+            $query->select(self::columns())
+            ->where('maids.unemployed',1)
+            ->orderBy('created_at', 'desc')
         ));
+    }
+
+    /**
+     * Get the columns that should be selected.
+     *
+     * @return array
+     */
+    protected static function columns()
+    {
+        return [
+            'maids.*',
+        ];
     }
 
     /**
@@ -37,6 +54,26 @@ class UnemployedMaids extends Lens
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Slug::make(__('Code'), 'bio_no'),
+            
+            Text::make(__('Name'),'name')  
+             ->rules('required', 'min:2'),
+
+            Select::make(__('Jobs'),'jobs')  
+            ->rules('required')
+            ->options([
+                'nurse' => __('Nurse'),
+                'factory' => __('Factory'),
+                'construction' => __('Construction'),
+                'informal' => __('Informal'),
+                'other' => __('Other'),
+            ])->displayUsingLabels(),
+
+            Boolean::make(__('Unemployed'),'unemployed')->default(true),
+
+            Text::make(__('Confirm Date'),'cfm_date'),
+
+            Text::make(__('Employer Name'),'employer_name')->hideFromIndex(),
         ];
     }
 
