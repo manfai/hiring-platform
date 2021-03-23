@@ -16,7 +16,7 @@ class Admin extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\Admin::class;
+    public static $model = \App\Models\User::class;
 
     public static function label() {
         return __('Staff');
@@ -27,7 +27,7 @@ class Admin extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -113,4 +113,10 @@ class Admin extends Resource
     {
         return [];
     }
+    
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query;
+    }
+    
 }

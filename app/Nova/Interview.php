@@ -52,6 +52,8 @@ class Interview extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            BelongsTo::make(__('By'),'admin','App\Nova\Admin')->onlyOnIndex(),
+            BelongsTo::make(__('From'),'user','App\Nova\User')->onlyOnIndex(),
             DateTime::make(__('Started At'),'started_at'),
             BelongsTo::make(__('Maid'),'maid','App\Nova\Maid')->searchable(),
             Select::make(__('Status'),'status')->options([
@@ -61,7 +63,6 @@ class Interview extends Resource
             Textarea::make(__('Remark'),'remark'),
             Notes::make(__('Notes'),'notes'),
             // DateTime::make(__('Ended At'),'ended_at'),
-            // BelongsTo::make(__('Admin'),'admin','App\Nova\Admin'),
         ];
     }
 

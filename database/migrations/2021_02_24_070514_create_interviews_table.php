@@ -30,6 +30,7 @@ class CreateInterviewsTable extends Migration
             $table->json('remark')->nullable();
             $table->string('status')->nullable();
             $table->timestamp('ended_at')->nullable();
+            $table->softDeletes();
 
         });
     }

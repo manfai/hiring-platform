@@ -523,7 +523,10 @@
   "Logs": "系統日誌",
   "Backups": "數據備份",
   "Admin": "管理",
+  "From": "指派用戶",
+  "By": "負責人",
   "Users": "用戶列表",
+  "User": "用戶",
 
   "Vacuum and Wash Carpets": "真空地毯和洗地毯",
   "Dust and Sweep Floors and Surfaces": "灰塵和掃地和地面",
@@ -541,6 +544,10 @@
   "Fax Number":"傳真號碼",
   "Phone Number":"電話號碼",
   "City":"城市",
+  
+  "Make an Appointment":"預約面試",
+  "Are you confirm an appoinment?": "確定要預幾面試嗎？",
+  "The interview schedule has been specified for you!": "已為您指定面試安排！",
 
   "novaSettings.navigationItemTitle": "設定",
   "novaSettings.saveButtonText": "儲存設定",
@@ -548,4 +555,5 @@
   "novaSettings.settingsSuccessToast": "設置已成功更新",
   "novaSettings.general": "一般"
   
+
 }

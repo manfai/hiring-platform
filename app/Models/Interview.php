@@ -5,11 +5,13 @@ namespace App\Models;
 use DigitalCloud\ModelNotes\HasNotes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Interview extends Model
 {
     use HasFactory;
     use HasNotes;
+    use SoftDeletes;
 
     protected $casts = [
         'created_at' => 'datetime',
@@ -22,7 +24,7 @@ class Interview extends Model
         parent::boot();
         static::creating(function ($model) {
             //assign admin when create new interview
-            $model->admin_id = auth()->user()->id;
+            // $model->admin_id = auth()->user()->id;
         });
     }
 

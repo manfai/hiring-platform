@@ -35,7 +35,7 @@ class Maid extends Resource
      *
      * @var string
      */
-    public static $title = 'bio_no';
+    public static $title = 'name';
     /**
      * Get the search result subtitle for the resource.
      *
@@ -43,7 +43,7 @@ class Maid extends Resource
      */
     public function subtitle()
     {
-        return "Name: {$this->name}";
+        return "No: {$this->bio_no}";
     }
 
     public static $showColumnBorders = true;
@@ -264,6 +264,10 @@ class Maid extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Actions\MakeAppointment())->confirmText(__('Are you confirm an appoinment?'))
+            ->confirmButtonText('Yes')
+            ->cancelButtonText("No"),
+        ];
     }
 }

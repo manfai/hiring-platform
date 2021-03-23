@@ -8,6 +8,9 @@
   /* --logo: #356b72; */
   /* --sidebar-icon: #fcffff; */
 }
+.modal.select-none{
+  background:rgba(0,0,0,.3);
+}
 /* 
 .bg-grad-sidebar {
   background-image: -webkit-gradient(

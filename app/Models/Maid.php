@@ -11,10 +11,12 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\Models\Media;
 use DigitalCloud\ModelNotes\HasNotes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Tags\HasTags;
 
 class Maid extends Model implements HasMedia
 {
+    use SoftDeletes;
     use HasFactory;
     use HasNotes;
     use HasTags;
