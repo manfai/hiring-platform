@@ -30,7 +30,7 @@ class Interview extends Model
 
     public function admin()
     {
-        return $this->belongsTo(Admin::class);
+        return $this->belongsTo(User::class);
     }
 
     public function maid()

@@ -71,11 +71,17 @@ class Maid extends Resource
     public function fields(Request $request)
     {
         return [
+            Boolean::make(__('Unemployed'),'unemployed')->default(true),
+
             Slug::make(__('Code'), 'bio_no'),
             
             Text::make(__('Name'),'name')  
              ->rules('required', 'min:2'),
 
+            Number::make(__('Age'),'age', function($value){
+                return $value.__('Year Old');
+            })->onlyOnIndex(),
+         
             Select::make(__('Jobs'),'jobs')  
             ->rules('required')
             ->options([
@@ -86,7 +92,6 @@ class Maid extends Resource
                 'other' => __('Other'),
             ])->displayUsingLabels(),
 
-            Boolean::make(__('Unemployed'),'unemployed')->default(true),
 
             Text::make(__('Confirm Date'),'cfm_date'),
 
@@ -94,32 +99,32 @@ class Maid extends Resource
 
             Date::make(__('JPL Date'),'jpl_date')->hideFromIndex(),
 
-            Heading::make(__('Medical')),
-            Date::make(__('Medical Date'),'medical_date'),
-            Text::make(__('Medical Result'),'medical_result'),
+            Heading::make(__('Medical'))->hideFromIndex(),
+            Date::make(__('Medical Date'),'medical_date')->hideFromIndex(),
+            Text::make(__('Medical Result'),'medical_result')->hideFromIndex(),
 
             Heading::make(__('Passport')),
             Text::make(__('Passport No'),'passport_no')->hideFromIndex(),
             Text::make(__('Passport Expire Date'),'passport_expired')->hideFromIndex(),
             
             Heading::make(__('JO')),
-            Text::make(__('JO Type'),'jo_type'),
-            Date::make(__('JO Revice Date'),'jo_rcv_date'),
-            Text::make(__('JO No'),'jo_no'),
+            Text::make(__('JO Type'),'jo_type')->hideFromIndex(),
+            Date::make(__('JO Revice Date'),'jo_rcv_date')->hideFromIndex(),
+            Text::make(__('JO No'),'jo_no')->hideFromIndex(),
 
             Heading::make(__('MOFA')),
-            Date::make(__('MOFA Revice Date'),'mofa_rcv_date'),
-            Text::make(__('MOFA No'),'mofa_no'),
+            Date::make(__('MOFA Revice Date'),'mofa_rcv_date')->hideFromIndex(),
+            Text::make(__('MOFA No'),'mofa_no')->hideFromIndex(),
 
             Heading::make(__('Visa')),
             Text::make(__('Visa In'),'visa_in'),
             Text::make(__('Visa Out'),'visa_out'),
         
             Heading::make(__('Flight')),
-            Date::make(__('Flight Date'),'flight_date'),
+            Date::make(__('Flight Date'),'flight_date')->hideFromIndex(),
             Text::make(__('Flight No'),'flight_no')
             ->rules('required', 'min:2')->hideFromIndex(),
-            Text::make(__('Flight ETA'),'flight_eta'),
+            Text::make(__('Flight ETA'),'flight_eta')->hideFromIndex(),
 
             Heading::make(__('Remark')),
             KeyValue::make(__('Remark'),'remark')->hideFromIndex()->keyLabel(__('Label')) // Customize the key heading
@@ -161,7 +166,6 @@ class Maid extends Resource
 
             Date::make(__('Date of Birthday'),'dob')  
             ->rules('required')->onlyOnForms(),
-            Number::make(__('Age'),'age')->onlyOnIndex(),
 
             Select::make(__('Gender'),'gender')  
             ->rules('required')
@@ -276,6 +280,7 @@ class Maid extends Resource
             (new Actions\MakeAppointment())->confirmText(__('Are you confirm an appoinment?'))
             ->confirmButtonText('Yes')
             ->cancelButtonText("No"),
+            (new Actions\DownloadExcel())->withHeadings()->withFilename('Maids_' . now() . '.xlsx')
         ];
     }
 }

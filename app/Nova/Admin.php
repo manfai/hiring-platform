@@ -116,7 +116,7 @@ class Admin extends Resource
     
     public static function indexQuery(NovaRequest $request, $query)
     {
-        return $query;
+        return $query->role(['Staff'],'user');
     }
     
 }

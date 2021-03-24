@@ -459,11 +459,12 @@
   "Flight ETA": "預計到達時間",
   "Remark": "備註",
 
-
+  "Download Excel": "下載資料",
   "Image": "圖片",
   "Images": "更多圖片",
   "Name": "名字",
   "Age": "年齡",
+  "Year Old": "歲",
   "Gender": "性別",
   "Marital Status": "婚姻狀態",
   "Height": "身高",
@@ -500,6 +501,7 @@
   "Pig": "可吃豬肉",
   "Pending": "待處理",
   "Processing": "處理中",
+  "Confirmed": "已確認",
   "Completed": "完成",
   "Started At": "開始時間",
   "Ended At": "結束時間",

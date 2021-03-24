@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use DigitalCloud\NovaResourceNotes\Fields\Notes;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
@@ -57,9 +58,10 @@ class Interview extends Resource
             DateTime::make(__('Started At'),'started_at'),
             BelongsTo::make(__('Maid'),'maid','App\Nova\Maid')->searchable(),
             Select::make(__('Status'),'status')->options([
-                'pending'=>__('Pending'),
-                'completed'=>__('Completed'),
-            ]),
+                'pending'   =>__('Pending'),
+                'confirmed' =>__('Confirmed'),
+                'completed' =>__('Completed'),
+            ])->displayUsingLabels(),
             Textarea::make(__('Remark'),'remark'),
             Notes::make(__('Notes'),'notes'),
             // DateTime::make(__('Ended At'),'ended_at'),

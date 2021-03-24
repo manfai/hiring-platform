@@ -10,6 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 class Admin extends Authenticatable
 {
     use HasFactory, Notifiable, HasRoles;
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.

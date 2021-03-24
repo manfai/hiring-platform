@@ -3,11 +3,14 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\MorphToMany;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class User extends Resource
 {
@@ -68,6 +71,9 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
             
+            Number::make('Interview','interview', function($value){
+                return $value->whereNotIn('status',['completed'])->count();
+            }),
             MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
             MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class),
         ];
@@ -116,4 +122,15 @@ class User extends Resource
     {
         return [];
     }
+
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        $adminId = \App\Models\User::role('Admin')->get()->pluck('id')->toArray();
+        $superAdminId = \App\Models\User::role('Super Admin')->get()->pluck('id')->toArray();
+        $staffId = \App\Models\User::role('Staff')->get()->pluck('id')->toArray();
+        $userId = array_merge($adminId,$superAdminId);
+        $userId = array_merge($userId,$staffId);
+        return $query->whereNotIn('id',$userId);
+    }
+    
 }

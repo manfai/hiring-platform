@@ -11,7 +11,8 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasRoles;
-
+    protected $guard_name = 'user';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -42,8 +43,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getIsAdminAttribute(){
-        return $this->user()->hasRole('SuperAdmin');
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($model) {
+            $model->assignRole(['User']);
+        });
     }
+    
+
+    public function getIsAdminAttribute(){
+        $diff = array_intersect($this->getRoleNames()->toArray(),['Super Admin','Admin','Staff']);
+        return count($diff)>0;
+    }
+
+    public function interview()
+    {
+        return $this->hasMany(Interview::class);
+    }
+
 
 }
