@@ -111,4 +111,14 @@ class Interview extends Resource
     {
         return [];
     }
+
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if($request->user()->hasAnyRole(['Super Admin', 'Admin'])){
+            return $query;
+        } else {
+            return $query->where('user_id',auth()->user()->id);
+        }
+    }
+
 }

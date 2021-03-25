@@ -24,7 +24,7 @@ class Interview extends Model
         parent::boot();
         static::creating(function ($model) {
             //assign admin when create new interview
-            // $model->admin_id = auth()->user()->id;
+            $model->user_id = auth()->user()->id;
         });
     }
 

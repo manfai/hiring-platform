@@ -262,9 +262,15 @@ class Maid extends Resource
     public function lenses(Request $request)
     {
         return [
-            new Lenses\UnemployedMaids(),
-            new Lenses\BookedMaids(),
-            new Lenses\SpecificMaids(),
+            (new Lenses\UnemployedMaids())->canSee(function($request){
+                return $request->user()->hasAnyRole(["Super Admin","Admin","Staff"]);
+            }),
+            (new Lenses\BookedMaids())->canSee(function($request){
+                return $request->user()->hasAnyRole(["Super Admin","Admin","Staff"]);
+            }),
+            (new Lenses\SpecificMaids())->canSee(function($request){
+                return $request->user()->hasAnyRole(["Super Admin","Admin","Staff"]);
+            }),
         ];
     }
 
@@ -277,9 +283,9 @@ class Maid extends Resource
     public function actions(Request $request)
     {
         return [
-            (new Actions\MakeAppointment())->confirmText(__('Are you confirm an appoinment?'))
-            ->confirmButtonText('Yes')
-            ->cancelButtonText("No"),
+            (new Actions\MakeAppointment())->canRun(function ($request, $document) {
+                return $request->user()->hasAnyRole(['User']);
+            }),
             (new Actions\DownloadExcel())->withHeadings()->withFilename('Maids_' . now() . '.xlsx')
         ];
     }

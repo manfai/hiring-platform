@@ -521,6 +521,11 @@
   "Single": "单身",
   "Male": "男",
   "Female": "女",
+  "Profile": "帳號",
+  "E-mail address": "登入電郵",
+  "Password Confirmation": "確認密碼",
+  "Update Profile": "更新帳號",
+  "Save Profile": "儲存",
 
   "Notes": "備忘錄",
   "Logs": "系統日誌",
