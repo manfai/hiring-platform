@@ -116,15 +116,21 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                             LensResource::make(
                                 \App\Nova\Maid::class,
                                 \App\Nova\Lenses\UnemployedMaids::class
-                            ),
+                            )->canSee(function($request){
+                                return $request->user()->hasAnyRole(['Super Admin', 'Admin']);
+                            }),
                             LensResource::make(
                                 \App\Nova\Maid::class,
                                 \App\Nova\Lenses\BookedMaids::class
-                            ),
+                            )->canSee(function($request){
+                                return $request->user()->hasAnyRole(['Super Admin', 'Admin']);
+                            }),
                             LensResource::make(
                                 \App\Nova\Maid::class,
                                 \App\Nova\Lenses\SpecificMaids::class
-                            ),
+                            )->canSee(function($request){
+                                return $request->user()->hasAnyRole(['Super Admin', 'Admin']);
+                            }),
                             \App\Nova\Interview::class,
                         ]
                     ]),
@@ -151,13 +157,22 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                                 'path' => '/backups',
                             ]),
                         ]
-                    ]),
+                    ])->canSee(function($request){
+                        return $request->user()->hasAnyRole(['Super Admin', 'Admin']);
+                    }),
                 ]
             ]),
-            \KABBOUCHI\LogsTool\LogsTool::make(),
-            \Spatie\BackupTool\BackupTool::make(),
+            \KABBOUCHI\LogsTool\LogsTool::make()->canSee(function($request){
+                return $request->user()->hasAnyRole(['Super Admin']);
+            }),
+            \Spatie\BackupTool\BackupTool::make()->canSee(function($request){
+                return $request->user()->hasAnyRole(['Super Admin']);
+            }),
+            \Runline\ProfileTool\ProfileTool::make(),
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
-            \OptimistDigital\NovaSettings\NovaSettings::make(),
+            \OptimistDigital\NovaSettings\NovaSettings::make()->canSee(function($request){
+                return $request->user()->hasAnyRole(['Super Admin', 'Admin']);
+            }),
         ];
     }
 
