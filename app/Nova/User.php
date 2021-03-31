@@ -73,7 +73,7 @@ class User extends Resource
             
             Number::make('Interview','interview', function($value){
                 return $value->whereNotIn('status',['completed'])->count();
-            }),
+            })->onlyOnIndex(),
             MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
             MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class),
         ];

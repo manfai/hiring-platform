@@ -49,6 +49,10 @@ class Maid extends Model implements HasMedia
             $model->age = $age;
         });
     }
+
+    public function users(){
+        return $this->belongsToMany(User::class,'user_maids');
+    }
     
 
 

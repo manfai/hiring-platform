@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.32)
 # Database: hiring_system
-# Generation Time: 2021-03-23 08:07:16 +0000
+# Generation Time: 2021-03-25 09:02:13 +0000
 # ************************************************************
 
 
@@ -91,38 +91,50 @@ VALUES
 	(35,'9304b4ad-bfab-48d6-ae51-cffacf962e36',1,'Create','Spatie\\Permission\\Models\\Permission',17,'Spatie\\Permission\\Models\\Permission',17,'Spatie\\Permission\\Models\\Permission',17,'','finished','','2021-03-23 07:23:24','2021-03-23 07:23:24',NULL,'{\"guard_name\":\"admin\",\"name\":\"View Backup\",\"updated_at\":\"2021-03-23T07:23:24.000000Z\",\"created_at\":\"2021-03-23T07:23:24.000000Z\",\"id\":17}'),
 	(36,'9304b4e4-8aa9-4d35-81ae-8b76dc7f0b6a',1,'Update','Spatie\\Permission\\Models\\Role',1,'Spatie\\Permission\\Models\\Role',1,'Spatie\\Permission\\Models\\Role',1,'','finished','','2021-03-23 07:24:00','2021-03-23 07:24:00','{\"name\":\"\\u54e1\\u5de5\"}','{\"name\":\"SuperAdmin\"}'),
 	(37,'9304b52e-fa84-4dec-ab8c-16fab190bc3a',1,'Create','Spatie\\Permission\\Models\\Role',2,'Spatie\\Permission\\Models\\Role',2,'Spatie\\Permission\\Models\\Role',2,'','finished','','2021-03-23 07:24:49','2021-03-23 07:24:49',NULL,'{\"guard_name\":\"admin\",\"name\":\"Admin\",\"updated_at\":\"2021-03-23T07:24:48.000000Z\",\"created_at\":\"2021-03-23T07:24:48.000000Z\",\"id\":2}'),
-	(38,'9304b54c-6f6a-4dfb-990b-bdc4cea2c39e',1,'Create','Spatie\\Permission\\Models\\Role',3,'Spatie\\Permission\\Models\\Role',3,'Spatie\\Permission\\Models\\Role',3,'','finished','','2021-03-23 07:25:08','2021-03-23 07:25:08',NULL,'{\"guard_name\":\"admin\",\"name\":\"Staff\",\"updated_at\":\"2021-03-23T07:25:08.000000Z\",\"created_at\":\"2021-03-23T07:25:08.000000Z\",\"id\":3}');
+	(38,'9304b54c-6f6a-4dfb-990b-bdc4cea2c39e',1,'Create','Spatie\\Permission\\Models\\Role',3,'Spatie\\Permission\\Models\\Role',3,'Spatie\\Permission\\Models\\Role',3,'','finished','','2021-03-23 07:25:08','2021-03-23 07:25:08',NULL,'{\"guard_name\":\"admin\",\"name\":\"Staff\",\"updated_at\":\"2021-03-23T07:25:08.000000Z\",\"created_at\":\"2021-03-23T07:25:08.000000Z\",\"id\":3}'),
+	(39,'93068124-7f15-40a8-8eab-bc220c392b54',1,'Create','Spatie\\Permission\\Models\\Role',1,'Spatie\\Permission\\Models\\Role',1,'Spatie\\Permission\\Models\\Role',1,'','finished','','2021-03-24 04:50:57','2021-03-24 04:50:57',NULL,'{\"guard_name\":\"user\",\"name\":\"SuperAdmin\",\"updated_at\":\"2021-03-24T04:50:57.000000Z\",\"created_at\":\"2021-03-24T04:50:57.000000Z\",\"id\":1}'),
+	(40,'9306812f-3445-41ac-9d85-892686d531ac',1,'Create','Spatie\\Permission\\Models\\Role',2,'Spatie\\Permission\\Models\\Role',2,'Spatie\\Permission\\Models\\Role',2,'','finished','','2021-03-24 04:51:04','2021-03-24 04:51:04',NULL,'{\"guard_name\":\"user\",\"name\":\"Admin\",\"updated_at\":\"2021-03-24T04:51:04.000000Z\",\"created_at\":\"2021-03-24T04:51:04.000000Z\",\"id\":2}'),
+	(41,'9306813c-e407-4278-b749-fd0cc0214f9b',1,'Create','Spatie\\Permission\\Models\\Role',3,'Spatie\\Permission\\Models\\Role',3,'Spatie\\Permission\\Models\\Role',3,'','finished','','2021-03-24 04:51:13','2021-03-24 04:51:13',NULL,'{\"guard_name\":\"user\",\"name\":\"Staff\",\"updated_at\":\"2021-03-24T04:51:13.000000Z\",\"created_at\":\"2021-03-24T04:51:13.000000Z\",\"id\":3}'),
+	(42,'9306814b-8c6a-4b4f-ba76-6d9b2ced4ada',1,'Create','Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'','finished','','2021-03-24 04:51:23','2021-03-24 04:51:23',NULL,'{\"guard_name\":\"user\",\"name\":\"User\",\"updated_at\":\"2021-03-24T04:51:22.000000Z\",\"created_at\":\"2021-03-24T04:51:22.000000Z\",\"id\":4}'),
+	(43,'930681c2-3341-496b-bc84-40132d074d7e',1,'Attach','Spatie\\Permission\\Models\\Role',1,'App\\Models\\User',1,'Illuminate\\Database\\Eloquent\\Relations\\MorphPivot',NULL,'','finished','','2021-03-24 04:52:40','2021-03-24 04:52:40',NULL,'{\"role_id\":\"1\",\"model_id\":\"1\",\"model_type\":\"App\\\\Models\\\\User\"}'),
+	(44,'9306832b-cb15-45bc-b5d3-5782ae92adbb',1,'Update','Spatie\\Permission\\Models\\Role',1,'Spatie\\Permission\\Models\\Role',1,'Spatie\\Permission\\Models\\Role',1,'','finished','','2021-03-24 04:56:37','2021-03-24 04:56:37','{\"name\":\"SuperAdmin\"}','{\"name\":\"Super Admin\"}'),
+	(45,'93068590-5686-46da-901f-569708f3e845',1,'Attach','App\\Models\\User',2,'Spatie\\Permission\\Models\\Role',2,'Illuminate\\Database\\Eloquent\\Relations\\MorphPivot',NULL,'','finished','','2021-03-24 05:03:19','2021-03-24 05:03:19',NULL,'{\"model_id\":\"2\",\"role_id\":\"2\",\"model_type\":\"App\\\\Models\\\\User\"}'),
+	(46,'9306869f-5b13-4a4a-8001-3eae70c1f6b4',1,'Attach','App\\Models\\User',3,'Spatie\\Permission\\Models\\Role',4,'Illuminate\\Database\\Eloquent\\Relations\\MorphPivot',NULL,'','finished','','2021-03-24 05:06:16','2021-03-24 05:06:16',NULL,'{\"model_id\":\"3\",\"role_id\":\"4\",\"model_type\":\"App\\\\Models\\\\User\"}'),
+	(47,'9306d46d-5e36-41e6-bfa4-8cf42c45f0e9',1,'Attach','App\\Models\\User',1,'Spatie\\Permission\\Models\\Role',2,'Illuminate\\Database\\Eloquent\\Relations\\MorphPivot',NULL,'','finished','','2021-03-24 08:43:50','2021-03-24 08:43:50',NULL,'{\"model_id\":\"1\",\"role_id\":\"2\",\"model_type\":\"App\\\\Models\\\\User\"}'),
+	(48,'9306e68d-74bc-4a03-bf64-10994edf5920',1,'Create','Spatie\\Permission\\Models\\Permission',1,'Spatie\\Permission\\Models\\Permission',1,'Spatie\\Permission\\Models\\Permission',1,'','finished','','2021-03-24 09:34:31','2021-03-24 09:34:31',NULL,'{\"guard_name\":\"user\",\"name\":\"view maids\",\"updated_at\":\"2021-03-24T09:34:31.000000Z\",\"created_at\":\"2021-03-24T09:34:31.000000Z\",\"id\":1}'),
+	(49,'9306e69b-246d-4aa9-959a-8b8c86b3e608',1,'Create','Spatie\\Permission\\Models\\Permission',2,'Spatie\\Permission\\Models\\Permission',2,'Spatie\\Permission\\Models\\Permission',2,'','finished','','2021-03-24 09:34:40','2021-03-24 09:34:40',NULL,'{\"guard_name\":\"user\",\"name\":\"create maids\",\"updated_at\":\"2021-03-24T09:34:40.000000Z\",\"created_at\":\"2021-03-24T09:34:40.000000Z\",\"id\":2}'),
+	(50,'9306e6a6-fe1b-4f64-9cd6-b4b353542a69',1,'Create','Spatie\\Permission\\Models\\Permission',3,'Spatie\\Permission\\Models\\Permission',3,'Spatie\\Permission\\Models\\Permission',3,'','finished','','2021-03-24 09:34:47','2021-03-24 09:34:47',NULL,'{\"guard_name\":\"user\",\"name\":\"edit maids\",\"updated_at\":\"2021-03-24T09:34:47.000000Z\",\"created_at\":\"2021-03-24T09:34:47.000000Z\",\"id\":3}'),
+	(51,'9306e6b1-5f8b-46ba-ae8e-9ebef93dd813',1,'Create','Spatie\\Permission\\Models\\Permission',4,'Spatie\\Permission\\Models\\Permission',4,'Spatie\\Permission\\Models\\Permission',4,'','finished','','2021-03-24 09:34:54','2021-03-24 09:34:54',NULL,'{\"guard_name\":\"user\",\"name\":\"delete maids\",\"updated_at\":\"2021-03-24T09:34:54.000000Z\",\"created_at\":\"2021-03-24T09:34:54.000000Z\",\"id\":4}'),
+	(52,'9306e6b9-c9be-4c21-b05a-e498df02b89e',1,'Create','Spatie\\Permission\\Models\\Permission',5,'Spatie\\Permission\\Models\\Permission',5,'Spatie\\Permission\\Models\\Permission',5,'','finished','','2021-03-24 09:35:00','2021-03-24 09:35:00',NULL,'{\"guard_name\":\"user\",\"name\":\"restore maids\",\"updated_at\":\"2021-03-24T09:35:00.000000Z\",\"created_at\":\"2021-03-24T09:35:00.000000Z\",\"id\":5}'),
+	(53,'9306e6c2-f9f5-4c7c-bb5b-d2c5b5fab400',1,'Create','Spatie\\Permission\\Models\\Permission',6,'Spatie\\Permission\\Models\\Permission',6,'Spatie\\Permission\\Models\\Permission',6,'','finished','','2021-03-24 09:35:06','2021-03-24 09:35:06',NULL,'{\"guard_name\":\"user\",\"name\":\"force delete maids\",\"updated_at\":\"2021-03-24T09:35:06.000000Z\",\"created_at\":\"2021-03-24T09:35:06.000000Z\",\"id\":6}'),
+	(54,'9306e6da-d29f-4567-a7a9-289ff8c467be',1,'Update','Spatie\\Permission\\Models\\Permission',2,'Spatie\\Permission\\Models\\Permission',2,'Spatie\\Permission\\Models\\Permission',2,'','finished','','2021-03-24 09:35:21','2021-03-24 09:35:21','[]','[]'),
+	(55,'9306e6ee-bf82-4059-abd0-9a0b7d169772',1,'Update','Spatie\\Permission\\Models\\Permission',3,'Spatie\\Permission\\Models\\Permission',3,'Spatie\\Permission\\Models\\Permission',3,'','finished','','2021-03-24 09:35:34','2021-03-24 09:35:34','[]','[]'),
+	(56,'9308bdce-13f8-4273-897c-ed1424639916',1,'Create','Spatie\\Permission\\Models\\Permission',7,'Spatie\\Permission\\Models\\Permission',7,'Spatie\\Permission\\Models\\Permission',7,'','finished','','2021-03-25 07:32:14','2021-03-25 07:32:14',NULL,'{\"guard_name\":\"user\",\"name\":\"view users\",\"updated_at\":\"2021-03-25T07:32:13.000000Z\",\"created_at\":\"2021-03-25T07:32:13.000000Z\",\"id\":7}'),
+	(57,'9308bddd-7379-49ae-a870-8c8dfacff764',1,'Create','Spatie\\Permission\\Models\\Permission',8,'Spatie\\Permission\\Models\\Permission',8,'Spatie\\Permission\\Models\\Permission',8,'','finished','','2021-03-25 07:32:24','2021-03-25 07:32:24',NULL,'{\"guard_name\":\"user\",\"name\":\"create users\",\"updated_at\":\"2021-03-25T07:32:24.000000Z\",\"created_at\":\"2021-03-25T07:32:24.000000Z\",\"id\":8}'),
+	(58,'9308bdf0-624d-4bf6-802d-0e2af71cb214',1,'Create','Spatie\\Permission\\Models\\Permission',9,'Spatie\\Permission\\Models\\Permission',9,'Spatie\\Permission\\Models\\Permission',9,'','finished','','2021-03-25 07:32:36','2021-03-25 07:32:36',NULL,'{\"guard_name\":\"user\",\"name\":\"edit users\",\"updated_at\":\"2021-03-25T07:32:36.000000Z\",\"created_at\":\"2021-03-25T07:32:36.000000Z\",\"id\":9}'),
+	(59,'9308be00-4d5b-4c8e-bd2b-2bb7549986f4',1,'Create','Spatie\\Permission\\Models\\Permission',10,'Spatie\\Permission\\Models\\Permission',10,'Spatie\\Permission\\Models\\Permission',10,'','finished','','2021-03-25 07:32:47','2021-03-25 07:32:47',NULL,'{\"guard_name\":\"user\",\"name\":\"delete users\",\"updated_at\":\"2021-03-25T07:32:46.000000Z\",\"created_at\":\"2021-03-25T07:32:46.000000Z\",\"id\":10}'),
+	(60,'9308be0f-9a9c-4523-a7a6-fa20d5cc86ef',1,'Create','Spatie\\Permission\\Models\\Permission',11,'Spatie\\Permission\\Models\\Permission',11,'Spatie\\Permission\\Models\\Permission',11,'','finished','','2021-03-25 07:32:57','2021-03-25 07:32:57',NULL,'{\"guard_name\":\"user\",\"name\":\"restore users\",\"updated_at\":\"2021-03-25T07:32:57.000000Z\",\"created_at\":\"2021-03-25T07:32:57.000000Z\",\"id\":11}'),
+	(61,'9308be1e-eafd-4a7c-8907-73492b7c2148',1,'Create','Spatie\\Permission\\Models\\Permission',12,'Spatie\\Permission\\Models\\Permission',12,'Spatie\\Permission\\Models\\Permission',12,'','finished','','2021-03-25 07:33:07','2021-03-25 07:33:07',NULL,'{\"guard_name\":\"user\",\"name\":\"force delete users\",\"updated_at\":\"2021-03-25T07:33:07.000000Z\",\"created_at\":\"2021-03-25T07:33:07.000000Z\",\"id\":12}'),
+	(62,'9308be4d-fd3b-4592-a5c4-7637bd8363ea',1,'Create','Spatie\\Permission\\Models\\Permission',13,'Spatie\\Permission\\Models\\Permission',13,'Spatie\\Permission\\Models\\Permission',13,'','finished','','2021-03-25 07:33:38','2021-03-25 07:33:38',NULL,'{\"guard_name\":\"user\",\"name\":\"view interview\",\"updated_at\":\"2021-03-25T07:33:37.000000Z\",\"created_at\":\"2021-03-25T07:33:37.000000Z\",\"id\":13}'),
+	(63,'9308be61-4088-4276-895d-c51752ffe235',1,'Create','Spatie\\Permission\\Models\\Permission',14,'Spatie\\Permission\\Models\\Permission',14,'Spatie\\Permission\\Models\\Permission',14,'','finished','','2021-03-25 07:33:50','2021-03-25 07:33:50',NULL,'{\"guard_name\":\"user\",\"name\":\"create interview\",\"updated_at\":\"2021-03-25T07:33:50.000000Z\",\"created_at\":\"2021-03-25T07:33:50.000000Z\",\"id\":14}'),
+	(64,'9308be73-ca87-44fe-a8a6-5192d7d512d5',1,'Create','Spatie\\Permission\\Models\\Permission',15,'Spatie\\Permission\\Models\\Permission',15,'Spatie\\Permission\\Models\\Permission',15,'','finished','','2021-03-25 07:34:02','2021-03-25 07:34:02',NULL,'{\"guard_name\":\"user\",\"name\":\"edit interview\",\"updated_at\":\"2021-03-25T07:34:02.000000Z\",\"created_at\":\"2021-03-25T07:34:02.000000Z\",\"id\":15}'),
+	(65,'9308be8d-14f5-4f25-8eba-0002f8b613ee',1,'Create','Spatie\\Permission\\Models\\Permission',16,'Spatie\\Permission\\Models\\Permission',16,'Spatie\\Permission\\Models\\Permission',16,'','finished','','2021-03-25 07:34:19','2021-03-25 07:34:19',NULL,'{\"guard_name\":\"user\",\"name\":\"delete interview\",\"updated_at\":\"2021-03-25T07:34:19.000000Z\",\"created_at\":\"2021-03-25T07:34:19.000000Z\",\"id\":16}'),
+	(66,'9308be9f-651d-4c1f-9df1-b25e8f14322c',1,'Create','Spatie\\Permission\\Models\\Permission',17,'Spatie\\Permission\\Models\\Permission',17,'Spatie\\Permission\\Models\\Permission',17,'','finished','','2021-03-25 07:34:31','2021-03-25 07:34:31',NULL,'{\"guard_name\":\"user\",\"name\":\"restore interview\",\"updated_at\":\"2021-03-25T07:34:31.000000Z\",\"created_at\":\"2021-03-25T07:34:31.000000Z\",\"id\":17}'),
+	(67,'9308bead-7ff1-4b9c-8b5b-00f57941810f',1,'Create','Spatie\\Permission\\Models\\Permission',18,'Spatie\\Permission\\Models\\Permission',18,'Spatie\\Permission\\Models\\Permission',18,'','finished','','2021-03-25 07:34:40','2021-03-25 07:34:40',NULL,'{\"guard_name\":\"user\",\"name\":\"force delete interview\",\"updated_at\":\"2021-03-25T07:34:40.000000Z\",\"created_at\":\"2021-03-25T07:34:40.000000Z\",\"id\":18}'),
+	(68,'9308c31f-b2b0-40a7-8a19-d6804a98e235',1,'Attach','App\\Models\\User',2,'Spatie\\Permission\\Models\\Role',3,'Illuminate\\Database\\Eloquent\\Relations\\MorphPivot',NULL,'','finished','','2021-03-25 07:47:06','2021-03-25 07:47:06',NULL,'{\"model_id\":\"2\",\"role_id\":\"3\",\"model_type\":\"App\\\\Models\\\\User\"}'),
+	(69,'9308c41c-fe36-4216-b56f-7eeb1e419b16',1,'Update','Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'','finished','','2021-03-25 07:49:52','2021-03-25 07:49:52','[]','[]'),
+	(70,'9308c6d2-3016-493e-9566-0040c5084cec',1,'Update','Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'','finished','','2021-03-25 07:57:26','2021-03-25 07:57:26','[]','[]'),
+	(71,'9308c748-a808-4d62-b26c-60faf87c31dc',4,'Create','App\\Models\\Interview',7,'App\\Models\\Interview',7,'App\\Models\\Interview',7,'','finished','','2021-03-25 07:58:44','2021-03-25 07:58:44',NULL,'{\"started_at\":\"2021-04-01T04:00:00.000000Z\",\"maid_id\":74,\"status\":\"pending\",\"remark\":\"testing\",\"updated_at\":\"2021-03-25T07:58:44.000000Z\",\"created_at\":\"2021-03-25T07:58:44.000000Z\",\"id\":7}'),
+	(72,'9308c8b1-abed-4ee7-8797-f379d54ddcba',1,'Update','Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'','finished','','2021-03-25 08:02:41','2021-03-25 08:02:41','[]','[]'),
+	(73,'9308c8bf-ddad-4fb7-8a4d-f04aabe0ae17',4,'預約面試','App\\Models\\Maid',75,'App\\Models\\Maid',75,'App\\Models\\Maid',75,'a:2:{s:10:\"started_at\";s:19:\"2021-03-25 04:00:00\";s:6:\"remark\";s:6:\"123123\";}','finished','','2021-03-25 08:02:50','2021-03-25 08:02:50',NULL,NULL),
+	(74,'9308ceed-2b3e-4ad7-bc7a-b76282820c55',1,'Update','Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'','finished','','2021-03-25 08:20:06','2021-03-25 08:20:06','[]','[]'),
+	(75,'9308cf33-69bf-464d-9f52-d06d76751e8a',1,'Update','Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'','finished','','2021-03-25 08:20:52','2021-03-25 08:20:52','[]','[]'),
+	(76,'9308cf42-a5a5-4d5f-8ed3-5c8aaa0de1e4',4,'預約面試','App\\Models\\Maid',75,'App\\Models\\Maid',75,'App\\Models\\Maid',75,'a:2:{s:10:\"started_at\";s:19:\"2021-04-01 04:00:00\";s:6:\"remark\";s:6:\"asdasd\";}','finished','','2021-03-25 08:21:03','2021-03-25 08:21:03',NULL,NULL),
+	(77,'9308cfa1-f77d-4ab1-95e7-2cbce68fd00d',1,'Update','Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'Spatie\\Permission\\Models\\Role',4,'','finished','','2021-03-25 08:22:05','2021-03-25 08:22:05','[]','[]'),
+	(78,'9308d24b-636d-4ceb-9084-c37cda1771bc',4,'預約面試','App\\Models\\Maid',75,'App\\Models\\Maid',75,'App\\Models\\Maid',75,'a:2:{s:10:\"started_at\";s:19:\"2021-04-03 04:00:00\";s:6:\"remark\";s:3:\"asd\";}','finished','','2021-03-25 08:29:31','2021-03-25 08:29:32',NULL,NULL),
+	(79,'9308d24b-636d-4ceb-9084-c37cda1771bc',4,'預約面試','App\\Models\\Maid',74,'App\\Models\\Maid',74,'App\\Models\\Maid',74,'a:2:{s:10:\"started_at\";s:19:\"2021-04-03 04:00:00\";s:6:\"remark\";s:3:\"asd\";}','finished','','2021-03-25 08:29:32','2021-03-25 08:29:32',NULL,NULL);
 
 /*!40000 ALTER TABLE `action_events` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-# Dump of table admins
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `admins`;
-
-CREATE TABLE `admins` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-LOCK TABLES `admins` WRITE;
-/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-
-INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`)
-VALUES
-	(1,'測試管理員','webmaster@localhost',NULL,'$2y$10$PnGtL3ZAlQnQpcfT4YUfrO.cHsu2e7czG.7uvM8WXU559VS2Q0m4O',NULL,NULL,NULL);
-
-/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -171,12 +183,17 @@ LOCK TABLES `interviews` WRITE;
 
 INSERT INTO `interviews` (`id`, `name`, `maid_id`, `admin_id`, `user_id`, `status`, `created_at`, `updated_at`, `started_at`, `ended_at`, `remark`, `deleted_at`)
 VALUES
-	(1,NULL,8,1,NULL,NULL,'2021-03-23 04:06:18','2021-03-23 04:06:18','2021-03-26 04:00:00',NULL,'Testing',NULL),
-	(2,NULL,75,1,1,'pending','2021-03-23 06:33:29','2021-03-23 06:33:29','2021-03-25 04:00:00',NULL,NULL,NULL),
-	(3,NULL,75,NULL,1,'pending','2021-03-23 06:37:04','2021-03-23 06:37:04','2021-03-31 04:00:00',NULL,NULL,NULL),
-	(4,NULL,74,NULL,1,'pending','2021-03-23 06:37:04','2021-03-23 06:37:04','2021-03-31 04:00:00',NULL,NULL,NULL),
-	(5,NULL,75,NULL,1,'pending','2021-03-23 06:41:39','2021-03-23 06:41:39','2021-04-07 04:00:00',NULL,NULL,NULL),
-	(6,NULL,74,NULL,1,'pending','2021-03-23 06:45:37','2021-03-23 06:45:37','2021-03-30 04:00:00',NULL,NULL,NULL);
+	(1,NULL,8,2,6,'pending','2021-03-23 04:06:18','2021-03-23 04:06:18','2021-03-26 04:00:00',NULL,'Testing',NULL),
+	(2,NULL,75,2,23,'pending','2021-03-23 06:33:29','2021-03-23 06:33:29','2021-03-25 04:00:00',NULL,NULL,NULL),
+	(3,NULL,75,3,8,'pending','2021-03-23 06:37:04','2021-03-23 06:37:04','2021-03-31 04:00:00',NULL,NULL,NULL),
+	(4,NULL,74,2,16,'confirmed','2021-03-23 06:37:04','2021-03-23 06:37:04','2021-03-31 04:00:00',NULL,NULL,NULL),
+	(5,NULL,75,3,10,'pending','2021-03-23 06:41:39','2021-03-23 06:41:39','2021-04-07 04:00:00',NULL,NULL,NULL),
+	(6,NULL,74,3,11,'pending','2021-03-23 06:45:37','2021-03-23 06:45:37','2021-03-30 04:00:00',NULL,NULL,NULL),
+	(7,NULL,74,NULL,11,'pending','2021-03-25 07:58:44','2021-03-25 07:58:44','2021-04-01 04:00:00',NULL,'testing',NULL),
+	(8,NULL,75,NULL,4,'pending','2021-03-25 08:02:50','2021-03-25 08:02:50','2021-03-25 04:00:00',NULL,'123123',NULL),
+	(9,NULL,75,NULL,4,'pending','2021-03-25 08:21:03','2021-03-25 08:21:03','2021-04-01 04:00:00',NULL,'asdasd',NULL),
+	(10,NULL,75,NULL,4,'pending','2021-03-25 08:29:32','2021-03-25 08:29:32','2021-04-03 04:00:00',NULL,'asd',NULL),
+	(11,NULL,74,NULL,4,'pending','2021-03-25 08:29:32','2021-03-25 08:29:32','2021-04-03 04:00:00',NULL,'asd',NULL);
 
 /*!40000 ALTER TABLE `interviews` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -427,6 +444,69 @@ CREATE TABLE `model_has_roles` (
   CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+LOCK TABLES `model_has_roles` WRITE;
+/*!40000 ALTER TABLE `model_has_roles` DISABLE KEYS */;
+
+INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`)
+VALUES
+	(1,'App\\Models\\User',1),
+	(2,'App\\Models\\User',1),
+	(2,'App\\Models\\User',2),
+	(3,'App\\Models\\User',2),
+	(3,'App\\Models\\User',3),
+	(4,'App\\Models\\User',4),
+	(4,'App\\Models\\User',5),
+	(4,'App\\Models\\User',6),
+	(4,'App\\Models\\User',7),
+	(4,'App\\Models\\User',8),
+	(4,'App\\Models\\User',9),
+	(4,'App\\Models\\User',10),
+	(4,'App\\Models\\User',11),
+	(4,'App\\Models\\User',12),
+	(4,'App\\Models\\User',13),
+	(4,'App\\Models\\User',14),
+	(4,'App\\Models\\User',15),
+	(4,'App\\Models\\User',16),
+	(4,'App\\Models\\User',17),
+	(4,'App\\Models\\User',18),
+	(4,'App\\Models\\User',19),
+	(4,'App\\Models\\User',20),
+	(4,'App\\Models\\User',21),
+	(4,'App\\Models\\User',22),
+	(4,'App\\Models\\User',23),
+	(4,'App\\Models\\User',24),
+	(4,'App\\Models\\User',25),
+	(4,'App\\Models\\User',26),
+	(4,'App\\Models\\User',27),
+	(4,'App\\Models\\User',28),
+	(4,'App\\Models\\User',29),
+	(4,'App\\Models\\User',30),
+	(4,'App\\Models\\User',31),
+	(4,'App\\Models\\User',32),
+	(4,'App\\Models\\User',33),
+	(4,'App\\Models\\User',34),
+	(4,'App\\Models\\User',35),
+	(4,'App\\Models\\User',36),
+	(4,'App\\Models\\User',37),
+	(4,'App\\Models\\User',38),
+	(4,'App\\Models\\User',39),
+	(4,'App\\Models\\User',40),
+	(4,'App\\Models\\User',41),
+	(4,'App\\Models\\User',42),
+	(4,'App\\Models\\User',43),
+	(4,'App\\Models\\User',44),
+	(4,'App\\Models\\User',45),
+	(4,'App\\Models\\User',46),
+	(4,'App\\Models\\User',47),
+	(4,'App\\Models\\User',48),
+	(4,'App\\Models\\User',49),
+	(4,'App\\Models\\User',50),
+	(4,'App\\Models\\User',51),
+	(4,'App\\Models\\User',52),
+	(4,'App\\Models\\User',53);
+
+/*!40000 ALTER TABLE `model_has_roles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table notes
@@ -510,23 +590,24 @@ LOCK TABLES `permissions` WRITE;
 
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`)
 VALUES
-	(1,'Edit Maid','admin','2021-03-23 07:06:11','2021-03-23 07:06:11'),
-	(2,'View Maid','admin','2021-03-23 07:17:13','2021-03-23 07:17:13'),
-	(3,'Delete Maid','admin','2021-03-23 07:17:29','2021-03-23 07:20:56'),
-	(4,'Edit Interview','admin','2021-03-23 07:17:57','2021-03-23 07:17:57'),
-	(5,'View Interview','admin','2021-03-23 07:18:06','2021-03-23 07:18:06'),
-	(6,'Delete Interview','admin','2021-03-23 07:18:21','2021-03-23 07:18:21'),
-	(7,'View Admin','admin','2021-03-23 07:21:27','2021-03-23 07:21:27'),
-	(8,'Edit Admin','admin','2021-03-23 07:21:35','2021-03-23 07:21:35'),
-	(9,'Delete Admin','admin','2021-03-23 07:21:44','2021-03-23 07:21:44'),
-	(10,'View Role','admin','2021-03-23 07:21:56','2021-03-23 07:21:56'),
-	(11,'Edit Role','admin','2021-03-23 07:22:29','2021-03-23 07:22:29'),
-	(12,'Delete Role','admin','2021-03-23 07:22:38','2021-03-23 07:22:38'),
-	(13,'View permission','admin','2021-03-23 07:22:46','2021-03-23 07:22:46'),
-	(14,'Edit Permission','admin','2021-03-23 07:22:59','2021-03-23 07:22:59'),
-	(15,'Delete Permission','admin','2021-03-23 07:23:07','2021-03-23 07:23:07'),
-	(16,'View Log','admin','2021-03-23 07:23:15','2021-03-23 07:23:15'),
-	(17,'View Backup','admin','2021-03-23 07:23:24','2021-03-23 07:23:24');
+	(1,'view maids','user','2021-03-24 09:34:31','2021-03-24 09:34:31'),
+	(2,'create maids','user','2021-03-24 09:34:40','2021-03-24 09:34:40'),
+	(3,'edit maids','user','2021-03-24 09:34:47','2021-03-24 09:34:47'),
+	(4,'delete maids','user','2021-03-24 09:34:54','2021-03-24 09:34:54'),
+	(5,'restore maids','user','2021-03-24 09:35:00','2021-03-24 09:35:00'),
+	(6,'force delete maids','user','2021-03-24 09:35:06','2021-03-24 09:35:06'),
+	(7,'view users','user','2021-03-25 07:32:13','2021-03-25 07:32:13'),
+	(8,'create users','user','2021-03-25 07:32:24','2021-03-25 07:32:24'),
+	(9,'edit users','user','2021-03-25 07:32:36','2021-03-25 07:32:36'),
+	(10,'delete users','user','2021-03-25 07:32:46','2021-03-25 07:32:46'),
+	(11,'restore users','user','2021-03-25 07:32:57','2021-03-25 07:32:57'),
+	(12,'force delete users','user','2021-03-25 07:33:07','2021-03-25 07:33:07'),
+	(13,'view interview','user','2021-03-25 07:33:37','2021-03-25 07:33:37'),
+	(14,'create interview','user','2021-03-25 07:33:50','2021-03-25 07:33:50'),
+	(15,'edit interview','user','2021-03-25 07:34:02','2021-03-25 07:34:02'),
+	(16,'delete interview','user','2021-03-25 07:34:19','2021-03-25 07:34:19'),
+	(17,'restore interview','user','2021-03-25 07:34:31','2021-03-25 07:34:31'),
+	(18,'force delete interview','user','2021-03-25 07:34:40','2021-03-25 07:34:40');
 
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -568,6 +649,7 @@ VALUES
 	(15,1),
 	(16,1),
 	(17,1),
+	(18,1),
 	(1,2),
 	(2,2),
 	(3,2),
@@ -576,15 +658,36 @@ VALUES
 	(6,2),
 	(7,2),
 	(8,2),
+	(9,2),
 	(10,2),
+	(11,2),
+	(12,2),
+	(13,2),
+	(14,2),
+	(15,2),
 	(16,2),
 	(17,2),
+	(18,2),
 	(1,3),
 	(2,3),
 	(3,3),
 	(4,3),
 	(5,3),
-	(6,3);
+	(6,3),
+	(7,3),
+	(8,3),
+	(9,3),
+	(10,3),
+	(13,3),
+	(14,3),
+	(15,3),
+	(16,3),
+	(17,3),
+	(1,4),
+	(9,4),
+	(13,4),
+	(14,4),
+	(15,4);
 
 /*!40000 ALTER TABLE `role_has_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -610,9 +713,10 @@ LOCK TABLES `roles` WRITE;
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`)
 VALUES
-	(1,'SuperAdmin','admin','2021-03-23 07:06:42','2021-03-23 07:24:00'),
-	(2,'Admin','admin','2021-03-23 07:24:48','2021-03-23 07:24:48'),
-	(3,'Staff','admin','2021-03-23 07:25:08','2021-03-23 07:25:08');
+	(1,'Super Admin','user','2021-03-24 04:50:57','2021-03-24 04:56:37'),
+	(2,'Admin','user','2021-03-24 04:51:04','2021-03-24 04:51:04'),
+	(3,'Staff','user','2021-03-24 04:51:13','2021-03-24 04:51:13'),
+	(4,'User','user','2021-03-24 04:51:22','2021-03-24 04:51:22');
 
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -704,7 +808,59 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`)
 VALUES
-	(1,'測試用戶','user@localhost',NULL,'$2y$10$PnGtL3ZAlQnQpcfT4YUfrO.cHsu2e7czG.7uvM8WXU559VS2Q0m4O',NULL,NULL,NULL);
+	(1,'超級管理員','superadmin@localhost',NULL,'$2y$10$PnGtL3ZAlQnQpcfT4YUfrO.cHsu2e7czG.7uvM8WXU559VS2Q0m4O',NULL,'2021-03-24 08:38:27',NULL),
+	(2,'測試管理員','webmaster@localhost',NULL,'$2y$10$PnGtL3ZAlQnQpcfT4YUfrO.cHsu2e7czG.7uvM8WXU559VS2Q0m4O',NULL,'2021-03-24 08:38:27',NULL),
+	(3,'測試職員','staff@localhost',NULL,'$2y$10$PnGtL3ZAlQnQpcfT4YUfrO.cHsu2e7czG.7uvM8WXU559VS2Q0m4O',NULL,'2021-03-24 08:38:27',NULL),
+	(4,'Dr. Anabelle A\'Hara','ofelia.senger@example.org','2021-03-24 09:44:01','$2y$10$qKQMfAFq1r15ol/5p2pWou9tJJzybpcLMVuXJiXB7NVIJeE8ys6Ia','g9jJUnfsWB48tBjp326jJcl1NGhiTHE1fn71ONle0dH7bH90J3lxdqEFfHPh','2021-03-24 09:44:02','2021-03-25 08:54:03'),
+	(5,'Leilani Kilback','amari49@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','a1Ncxj0ThM','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(6,'Frederic Steuber','iweissnat@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','Po9cQzJEok','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(7,'Martine Gulgowski','kohler.shania@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','cWYSNdw95Z','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(8,'Jett Shanahan II','river25@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','CMGJocGMXH','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(9,'Kristopher Lubowitz','tmedhurst@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','esnQcbAv2j','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(10,'Hillard Streich','abshire.elinor@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','5fXoZO3SpI','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(11,'Winston Rowe','adolphus.brakus@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','RHoccToZE9','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(12,'Zander Fritsch','satterfield.isabel@example.com','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','NLLKarDzUO','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(13,'Murphy O\'Reilly','langworth.ken@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','4KjVp7peOE','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(14,'Cora Rolfson','frami.enrico@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','uccw9yNk3S','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(15,'Mr. Santos Beatty DVM','rtremblay@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','bA79aKBPzD','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(16,'Selmer Bernier','nienow.jan@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','GznkwwRmbE','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(17,'Kristina Nikolaus','hoppe.amely@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','u4djawD4pL','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(18,'Edyth Franecki','friesen.benton@example.com','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','zy5L0cHGyd','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(19,'Mac Ward','arielle41@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','2LJQ5VKW9Y','2021-03-24 09:44:02','2021-03-24 09:44:02'),
+	(20,'Trystan Pfannerstill','everett68@example.com','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','AvxMF0ZKiX','2021-03-24 09:44:03','2021-03-24 09:44:03'),
+	(21,'Cornell Funk IV','rutherford.desiree@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','uQYIvspv5u','2021-03-24 09:44:03','2021-03-24 09:44:03'),
+	(22,'Zelda Murphy','edyth16@example.com','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','rRpSsuhUwi','2021-03-24 09:44:03','2021-03-24 09:44:03'),
+	(23,'Robbie Heaney','austen.mcdermott@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','KEEqEUyNpP','2021-03-24 09:44:03','2021-03-24 09:44:03'),
+	(24,'Dr. Felicita Lakin MD','qchamplin@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','sh6502cfEo','2021-03-24 09:44:03','2021-03-24 09:44:03'),
+	(25,'Prof. Kenneth McLaughlin','leffler.einar@example.com','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','FO0oB129hn','2021-03-24 09:44:03','2021-03-24 09:44:03'),
+	(26,'Fermin Senger DVM','rashawn66@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','zzyxHVd5go','2021-03-24 09:44:03','2021-03-24 09:44:03'),
+	(27,'Gene Kirlin','augustus.gutmann@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','sAsQOOgLvt','2021-03-24 09:44:03','2021-03-24 09:44:03'),
+	(28,'Prof. Alberta Crist','zemlak.keyon@example.org','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','K4uFmpC62E','2021-03-24 09:44:04','2021-03-24 09:44:04'),
+	(29,'Mr. Kiel Boyle','kcassin@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','BrnTHV9dO8','2021-03-24 09:44:04','2021-03-24 09:44:04'),
+	(30,'Velma Feil','bmcdermott@example.net','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','rwbvLNespI','2021-03-24 09:44:04','2021-03-24 09:44:04'),
+	(31,'Cordell Aufderhar IV','ojerde@example.com','2021-03-24 09:44:01','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','TPbv4aOR82','2021-03-24 09:44:04','2021-03-24 09:44:04'),
+	(32,'Mr. Orval Labadie','tpfeffer@example.net','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','khHAE4UFP0','2021-03-24 09:44:04','2021-03-24 09:44:04'),
+	(33,'Eldora Wisoky','jbernier@example.net','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','NYdm2Sjlg9','2021-03-24 09:44:04','2021-03-24 09:44:04'),
+	(34,'Mrs. Yessenia Wunsch Jr.','marquardt.vinnie@example.org','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','o0z6zGVh21','2021-03-24 09:44:05','2021-03-24 09:44:05'),
+	(35,'Misty Sanford I','xdubuque@example.org','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','4eTl8wkbzv','2021-03-24 09:44:05','2021-03-24 09:44:05'),
+	(36,'Emmy Kohler','chesley72@example.org','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','PzkMkJJ5M1','2021-03-24 09:44:05','2021-03-24 09:44:05'),
+	(37,'Astrid Mayer','horacio23@example.net','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','TY0SYhSpyf','2021-03-24 09:44:05','2021-03-24 09:44:05'),
+	(38,'Ms. Lelia Lemke','oturcotte@example.org','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','9HTr3F1Sri','2021-03-24 09:44:05','2021-03-24 09:44:05'),
+	(39,'Elmore Lindgren','goodwin.edd@example.com','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','HEr8qLCzAJ','2021-03-24 09:44:06','2021-03-24 09:44:06'),
+	(40,'Janie Keebler','mwyman@example.com','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','2ZckBIrp4A','2021-03-24 09:44:06','2021-03-24 09:44:06'),
+	(41,'Prof. Jaleel O\'Reilly','montana.borer@example.net','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','gZFwfxXvJf','2021-03-24 09:44:06','2021-03-24 09:44:06'),
+	(42,'Vincenzo Braun DDS','heller.dina@example.org','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','LaE8HgnuCo','2021-03-24 09:44:06','2021-03-24 09:44:06'),
+	(43,'Hailey Deckow','katlynn.gottlieb@example.net','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','K3fEsB3SwD','2021-03-24 09:44:07','2021-03-24 09:44:07'),
+	(44,'Taya Hane','walton58@example.org','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','POqlc9uc8t','2021-03-24 09:44:07','2021-03-24 09:44:07'),
+	(45,'Justina Stark','muhammad.lind@example.org','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','WiqsbKGmTj','2021-03-24 09:44:07','2021-03-24 09:44:07'),
+	(46,'Maud Stehr III','carrie28@example.net','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','e6J4YDlSbE','2021-03-24 09:44:07','2021-03-24 09:44:07'),
+	(47,'Jameson Heidenreich PhD','wabbott@example.org','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','JYaEjBhJUu','2021-03-24 09:44:08','2021-03-24 09:44:08'),
+	(48,'Prof. Zion Kovacek Sr.','xavier.bogan@example.net','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','3C4v6W42Pc','2021-03-24 09:44:08','2021-03-24 09:44:08'),
+	(49,'Dr. Arden Witting I','dora65@example.org','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','zPrOtSk7eM','2021-03-24 09:44:08','2021-03-24 09:44:08'),
+	(50,'Sheila Schuster','macie.ullrich@example.net','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','RbrUqdQQa9','2021-03-24 09:44:08','2021-03-24 09:44:08'),
+	(51,'Mr. Jamar Gulgowski','jhomenick@example.com','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','hQPhxRWwPK','2021-03-24 09:44:09','2021-03-24 09:44:09'),
+	(52,'Kade Dietrich','roscoe.fisher@example.net','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','61t7qUJVLI','2021-03-24 09:44:09','2021-03-24 09:44:09'),
+	(53,'Miss Anissa Bauch','elvis.russel@example.com','2021-03-24 09:44:02','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','2xvY2GDQoB','2021-03-24 09:44:09','2021-03-24 09:44:09');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

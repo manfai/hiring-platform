@@ -62,6 +62,17 @@ class Maid extends Resource
         'id','bio_no','name'
     ];
 
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if($request->user()->hasAnyRole(['Super Admin','Admin'])){
+            return $query;
+        } else {
+            return $query->whereHas('users', function ($query) use($request){
+                $query->where('user_id', $request->user()->id);
+            });
+        }
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -71,7 +82,9 @@ class Maid extends Resource
     public function fields(Request $request)
     {
         return [
-            Boolean::make(__('Unemployed'),'unemployed')->default(true),
+            Boolean::make(__('Waiting Maid'),'unemployed')->default(true),
+            Boolean::make(__('Booked Maid'),'booked')->default(false),
+            Boolean::make(__('Specific Maid'),'specific')->default(false),
 
             Slug::make(__('Code'), 'bio_no'),
             
@@ -93,9 +106,9 @@ class Maid extends Resource
             ])->displayUsingLabels(),
 
 
-            Text::make(__('Confirm Date'),'cfm_date'),
+            Text::make(__('Confirm Date'),'cfm_date')->hideFromIndex(),
 
-            Text::make(__('Employer Name'),'employer_name')->hideFromIndex(),
+            Text::make(__('Employer Name'),'employer_name')->hideFromIndex(), //已僱->僱主
 
             Date::make(__('JPL Date'),'jpl_date')->hideFromIndex(),
 
@@ -117,13 +130,12 @@ class Maid extends Resource
             Text::make(__('MOFA No'),'mofa_no')->hideFromIndex(),
 
             Heading::make(__('Visa')),
-            Text::make(__('Visa In'),'visa_in'),
-            Text::make(__('Visa Out'),'visa_out'),
+            Text::make(__('Visa In'),'visa_in')->hideFromIndex(),
+            Text::make(__('Visa Out'),'visa_out')->hideFromIndex(),
         
             Heading::make(__('Flight')),
             Date::make(__('Flight Date'),'flight_date')->hideFromIndex(),
-            Text::make(__('Flight No'),'flight_no')
-            ->rules('required', 'min:2')->hideFromIndex(),
+            Text::make(__('Flight No'),'flight_no')->rules('required', 'min:2')->hideFromIndex(),
             Text::make(__('Flight ETA'),'flight_eta')->hideFromIndex(),
 
             Heading::make(__('Remark')),
@@ -159,7 +171,7 @@ class Maid extends Resource
                 'buddhism'      => __('Buddhism'),
                 'sikhism'       => __('Sikhism'),
                 'judaism'       => __('Judaism'),
-            ])->displayUsingLabels()->hideFromIndex(),
+            ])->displayUsingLabels(),
 
             Text::make(__('Address'),'address')  
             ->rules('required', 'min:2')->hideFromIndex(),
@@ -170,9 +182,9 @@ class Maid extends Resource
             Select::make(__('Gender'),'gender')  
             ->rules('required')
             ->options([
-                'M' => __('Male'),
-                'F' => __('Female'),
-            ])->displayUsingLabels()->hideFromIndex(),
+                'male' => __('Male'),
+                'female' => __('Female'),
+            ])->displayUsingLabels(),
 
             Select::make(__('Marital Status'),'marital_status')  
             ->rules('required')
@@ -182,7 +194,7 @@ class Maid extends Resource
                 'separated' => __('Separated'),
                 'divorced' => __('Divorced'),
                 'single' => __('Single'),
-            ])->displayUsingLabels()->hideFromIndex(),
+            ])->displayUsingLabels(),
 
             Select::make(__('Status'),'status')  
             ->rules('required')
@@ -196,7 +208,7 @@ class Maid extends Resource
                 "航程已被確定"=>"航程已被確定",
                 "機票在侯補單"=>"機票在侯補單",
                 "已收合同和簽證，有預訂機票者"=>"已收合同和簽證，有預訂機票者",
-            ])->hideFromIndex(),
+            ])->displayUsingLabels(),
 
             // Tags::make('Tags')->hideFromIndex(),
 
@@ -283,10 +295,13 @@ class Maid extends Resource
     public function actions(Request $request)
     {
         return [
-            (new Actions\MakeAppointment())->canRun(function ($request, $document) {
+            (new Actions\MakeAppointment())->canSee(function ($request) {
+                return $request->user()->hasAnyRole(['User']);
+            })->canRun(function ($request, $document) {
                 return $request->user()->hasAnyRole(['User']);
             }),
-            (new Actions\DownloadExcel())->withHeadings()->withFilename('Maids_' . now() . '.xlsx')
+            (new Actions\DownloadExcel())->withHeadings()->withFilename('Maids_' . now() . '.xlsx'),
+            (new Actions\AssignUser()),
         ];
     }
 }

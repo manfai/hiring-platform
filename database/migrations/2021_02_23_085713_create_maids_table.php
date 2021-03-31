@@ -41,6 +41,8 @@ class CreateMaidsTable extends Migration
             $table->string('name');
             $table->string('jobs');
             $table->boolean('unemployed');
+            $table->boolean('booked');
+            $table->boolean('specific');
             $table->date('cfm_date');
 
             $table->string('employer_name');

@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Notifications\InterviewRemind;
 use DigitalCreative\CollapsibleResourceManager\CollapsibleResourceManager;
 use DigitalCreative\CollapsibleResourceManager\Resources\InternalLink;
 use DigitalCreative\CollapsibleResourceManager\Resources\LensResource;
 use DigitalCreative\CollapsibleResourceManager\Resources\TopLevelResource;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Fields\Place;
@@ -24,6 +27,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
         Nova::serving(function (ServingNova $event) {
+            
             \OptimistDigital\NovaSettings\NovaSettings::addSettingsFields([
                 Place::make(__('Address'), 'address'),
                 Text::make(__('City'),'city'),
@@ -39,7 +43,17 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 'fax_no' => 'string',
                 'email' => 'string',
             ]);
+
+            $user = $event->request->user();
+            // if($user->interview()->count() > 0){
+            //     $user->notify(new InterviewRemind($user));
+            // }
+            if (array_key_exists($user->locale, config('nova.locales'))) {
+                app()->setLocale($user->locale);
+            }
+            
         });
+
     }
 
     /**
@@ -172,6 +186,15 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
             \OptimistDigital\NovaSettings\NovaSettings::make()->canSee(function($request){
                 return $request->user()->hasAnyRole(['Super Admin', 'Admin']);
+            }),
+            \Mirovit\NovaNotifications\NovaNotifications::make(),
+            \Eolica\NovaLocaleSwitcher\LocaleSwitcher::make()
+            ->setLocales(config('nova.locales'))
+            ->onSwitchLocale(function (Request $request) {
+                $locale = $request->post('locale');
+                if (array_key_exists($locale, config('nova.locales'))) {
+                    $request->user()->update(['locale' => $locale]);
+                }
             }),
         ];
     }

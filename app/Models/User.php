@@ -51,6 +51,15 @@ class User extends Authenticatable
         });
     }
     
+    /**
+     * The channels the user receives notification broadcasts on.
+     *
+     * @return string
+     */
+    public function receivesBroadcastNotificationsOn()
+    {
+        return 'users.'.$this->id;
+    }
 
     public function getIsAdminAttribute(){
         $diff = array_intersect($this->getRoleNames()->toArray(),['Super Admin','Admin','Staff']);
@@ -62,5 +71,8 @@ class User extends Authenticatable
         return $this->hasMany(Interview::class);
     }
 
+    public function maids(){
+        return $this->belongsToMany(Maid::class,'user_maids');
+    }
 
 }
