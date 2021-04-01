@@ -31,7 +31,7 @@ class Interview extends Resource
     public static $title = 'id';
 
     public static function label() {
-        return '面試請求';
+        return __('Interview Request');
     }
 
     /**

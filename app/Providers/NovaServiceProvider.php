@@ -50,6 +50,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             // }
             if (array_key_exists($user->locale, config('nova.locales'))) {
                 app()->setLocale($user->locale);
+                \Log::debug('Start of locale');
+                \Log::debug(app()->getLocale());
+                \Log::debug('End of locale');
             }
             
         });
@@ -193,6 +196,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             ->onSwitchLocale(function (Request $request) {
                 $locale = $request->post('locale');
                 if (array_key_exists($locale, config('nova.locales'))) {
+                    // \Log::debug('Start of locale');
+                    // \Log::debug($locale);
+                    // \Log::debug('End of locale');
                     $request->user()->update(['locale' => $locale]);
                 }
             }),

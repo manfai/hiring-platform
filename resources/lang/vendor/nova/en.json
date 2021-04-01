@@ -451,6 +451,14 @@
   "Contract": "Contract",
   "Airline Ticket": "Airline Ticket",
 
+
+  "Booked Maids": "Booked Maids",
+  "Waiting Maids": "Waiting Maids",
+  "Specific Maids": "Specific Maids",
+
+  "Maids":"Maids List",
+  "Logs":"Logs",
+  "CS":"CS",
   "Married": "Married",
   "Widowed": "Widowed",
   "Separated": "Separated",
