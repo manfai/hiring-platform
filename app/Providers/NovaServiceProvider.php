@@ -45,6 +45,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             ]);
 
             $user = $event->request->user();
+            // dd($user->hasPermissionTo('view maids'));
             // if($user->interview()->count() > 0){
             //     $user->notify(new InterviewRemind($user));
             // }
