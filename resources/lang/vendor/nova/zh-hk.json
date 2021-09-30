@@ -82,7 +82,7 @@
   "The government won't let us show you what's behind these doors": "The government won't let us show you what's behind these doors",
   "This image": "此圖片",
   "Update": "更新",
-  "Update & Continue Editing": "Update & Continue Editing",
+  "Update & Continue Editing": "更新及繼續編輯",
   "View": "View",
   "We're lost in space. The page you were trying to view does not exist.": "We're lost in space. The page you were trying to view does not exist.",
   "Show Content": "Show Content",
@@ -460,6 +460,9 @@
   "Remark": "備註",
 
   "Download Excel": "下載資料",
+  "Type": "類別",
+  "Questions": "問題",
+  "Results": "回覆",
   "Image": "圖片",
   "Images": "更多圖片",
   "Name": "名字",
@@ -558,6 +561,10 @@
   "Interview Request":"面試請求",
   "Are you confirm an appoinment?": "確定要預幾面試嗎？",
   "The interview schedule has been specified for you!": "已為您指定面試安排！",
+
+  "E-Form":"電子表格",
+  "E-Form Question":"表格問題",
+  "E-Form Results":"問題回覆",
 
   "novaSettings.navigationItemTitle": "設定",
   "novaSettings.saveButtonText": "儲存設定",

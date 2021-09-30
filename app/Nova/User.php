@@ -9,8 +9,10 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\NovaNotesField\NotesField as Notes;
 
 class User extends Resource
 {
@@ -55,6 +57,9 @@ class User extends Resource
             ID::make()->sortable(),
 
             Gravatar::make()->maxWidth(50),
+            Select::make(__('Type'),'type')->options([
+                'user' => 'User',
+            ])->displayUsingLabels()->onlyOnForms(),
 
             Text::make('Name')
                 ->sortable()
@@ -76,6 +81,8 @@ class User extends Resource
             })->onlyOnIndex(),
             MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
             MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class),
+
+            Notes::make(__('Notes'),'notes')->fullWidth(), 
         ];
     }
 

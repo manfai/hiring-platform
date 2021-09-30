@@ -6,11 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use OptimistDigital\NovaNotesField\Traits\HasNotes;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, HasNotes;
     protected $guard_name = 'user';
     
     /**
@@ -48,7 +49,11 @@ class User extends Authenticatable
     {
         parent::boot();
         static::creating(function ($model) {
-            $model->assignRole(['User']);
+            if($model->type=='staff'){
+                $model->assignRole(['Staff']);
+            } else {
+                $model->assignRole(['User']);
+            }
         });
     }
     

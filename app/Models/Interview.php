@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use DigitalCloud\ModelNotes\HasNotes;
+// use DigitalCloud\ModelNotes\HasNotes;
+use OptimistDigital\NovaNotesField\Traits\HasNotes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

@@ -2,7 +2,8 @@
 
 namespace App\Nova;
 
-use DigitalCloud\NovaResourceNotes\Fields\Notes;
+// use DigitalCloud\NovaResourceNotes\Fields\Notes;
+use OptimistDigital\NovaNotesField\NotesField as Notes;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\BelongsTo;
@@ -63,7 +64,7 @@ class Interview extends Resource
                 'completed' =>__('Completed'),
             ])->displayUsingLabels(),
             Textarea::make(__('Remark'),'remark'),
-            Notes::make(__('Notes'),'notes'),
+            Notes::make(__('Notes'),'notes')->fullWidth(),
             // DateTime::make(__('Ended At'),'ended_at'),
         ];
     }

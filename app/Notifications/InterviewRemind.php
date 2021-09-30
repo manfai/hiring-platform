@@ -14,17 +14,15 @@ class InterviewRemind extends Notification implements ShouldQueue
     use Queueable;
     private $user;
     private $interview;
-    private $date;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(User $user, $date)
+    public function __construct(User $user)
     {
         $this->user = $user;
-        $this->date = $date;
-        $this->interview = Interview::where('user_id',$user->id)->whereDate('started_at',$date)->count();
+        $this->interview = Interview::where('user_id',$user->id)->count();
 
     }
 
@@ -70,7 +68,7 @@ class InterviewRemind extends Notification implements ShouldQueue
         return \Mirovit\NovaNotifications\Notification::make()
             ->icon('fas fa-info')
             ->info('面試通知')
-            ->subtitle($this->date.'有' . $this->interview . '個面試')
+            ->subtitle('你有' . $this->interview . '準備開始')
             ->routeDetail('users', $this->user->id)
             ->toArray();
 

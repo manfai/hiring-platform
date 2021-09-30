@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -50,23 +51,27 @@ class Admin extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
 
-            Text::make('Name')
+            Select::make(__('Type'),'type')->options([
+                'staff' => 'Staff',
+            ])->displayUsingLabels()->default('staff')->onlyOnForms(),
+
+            Text::make(__('Name'),'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('Email')
+            Text::make(__('Email'),'email')
             ->sortable()
             ->rules('required', 'email', 'max:254')
             ->creationRules('unique:users,email')
             ->updateRules('unique:users,email,{{resourceId}}'),
 
-            Password::make('Password')
+            Password::make(__('Password'),'password')
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
             
-            MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
-            MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class),
+            MorphToMany::make(__('Roles'), 'roles', \Vyuldashev\NovaPermission\Role::class),
+            MorphToMany::make(__('Permissions'), 'permissions', \Vyuldashev\NovaPermission\Permission::class),
         ];
     }
 

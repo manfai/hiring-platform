@@ -27,7 +27,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
         Nova::serving(function (ServingNova $event) {
-            
             \OptimistDigital\NovaSettings\NovaSettings::addSettingsFields([
                 Place::make(__('Address'), 'address'),
                 Text::make(__('City'),'city'),
@@ -51,9 +50,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             // }
             if (array_key_exists($user->locale, config('nova.locales'))) {
                 app()->setLocale($user->locale);
-                \Log::debug('Start of locale');
-                \Log::debug(app()->getLocale());
-                \Log::debug('End of locale');
+                // \Log::debug('Start of locale');
+                // \Log::debug(app()->getLocale());
+                // \Log::debug('End of locale');
             }
             
         });
@@ -153,6 +152,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                         ]
                     ]),
                     TopLevelResource::make([
+                        'label' => __('E-Form'),
+                        'resources' => [
+                            \App\Nova\Eform::class,
+                            \App\Nova\EformQuestion::class,
+                            \App\Nova\EformResult::class,
+                        ]
+                    ]),
+                    TopLevelResource::make([
                         'label' => __('CS'),
                         'resources' => [
                             \App\Nova\User::class,
@@ -169,11 +176,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                                 'target' => '_self',
                                 'path' => '/logs',
                             ]),
-                            InternalLink::make([
-                                'label' => __('Backups'),
-                                'target' => '_self',
-                                'path' => '/backups',
-                            ]),
+                            // InternalLink::make([
+                            //     'label' => __('Backups'),
+                            //     'target' => '_self',
+                            //     'path' => '/backups',
+                            // ]),
                         ]
                     ])->canSee(function($request){
                         return $request->user()->hasAnyRole(['Super Admin', 'Admin']);
@@ -183,9 +190,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             \KABBOUCHI\LogsTool\LogsTool::make()->canSee(function($request){
                 return $request->user()->hasAnyRole(['Super Admin']);
             }),
-            \Spatie\BackupTool\BackupTool::make()->canSee(function($request){
-                return $request->user()->hasAnyRole(['Super Admin']);
-            }),
+            // \Spatie\BackupTool\BackupTool::make()->canSee(function($request){
+            //     return $request->user()->hasAnyRole(['Super Admin']);
+            // }),
             \Runline\ProfileTool\ProfileTool::make(),
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
             \OptimistDigital\NovaSettings\NovaSettings::make()->canSee(function($request){

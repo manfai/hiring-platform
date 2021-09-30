@@ -2,13 +2,15 @@
 
 namespace App\Nova;
 
-use DigitalCloud\NovaResourceNotes\Fields\Notes;
+// use DigitalCloud\NovaResourceNotes\Fields\Notes;
+use OptimistDigital\NovaNotesField\NotesField as Notes;
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\KeyValue;
@@ -86,7 +88,7 @@ class Maid extends Resource
             Boolean::make(__('Booked Maid'),'booked')->default(false),
             Boolean::make(__('Specific Maid'),'specific')->default(false),
 
-            Slug::make(__('Code'), 'bio_no'),
+            Slug::make(__('Code'), 'bio_no')->rules('required', 'min:2'),
             
             Text::make(__('Name'),'name')  
              ->rules('required', 'min:2'),
@@ -106,7 +108,7 @@ class Maid extends Resource
             ])->displayUsingLabels(),
 
 
-            Text::make(__('Confirm Date'),'cfm_date')->hideFromIndex(),
+            Date::make(__('Confirm Date'),'cfm_date')->hideFromIndex(),
 
             Text::make(__('Employer Name'),'employer_name')->hideFromIndex(), //已僱->僱主
 
@@ -118,7 +120,7 @@ class Maid extends Resource
 
             Heading::make(__('Passport')),
             Text::make(__('Passport No'),'passport_no')->hideFromIndex(),
-            Text::make(__('Passport Expire Date'),'passport_expired')->hideFromIndex(),
+            DateTime::make(__('Passport Expire Date'),'passport_expired')->hideFromIndex(),
             
             Heading::make(__('JO')),
             Text::make(__('JO Type'),'jo_type')->hideFromIndex(),
@@ -135,7 +137,7 @@ class Maid extends Resource
         
             Heading::make(__('Flight')),
             Date::make(__('Flight Date'),'flight_date')->hideFromIndex(),
-            Text::make(__('Flight No'),'flight_no')->rules('required', 'min:2')->hideFromIndex(),
+            Text::make(__('Flight No'),'flight_no')->nullable()->hideFromIndex(),
             Text::make(__('Flight ETA'),'flight_eta')->hideFromIndex(),
 
             Heading::make(__('Remark')),
@@ -145,13 +147,13 @@ class Maid extends Resource
 
             new Panel(__('Personal Information'), $this->personalFields()),
 
-            new Panel('Images', $this->imagesFields()),
+            new Panel(__('Images'), $this->imagesFields()),
 
          
 
             // new Panel('Extra Information', $this->statusFields()),
 
-            Notes::make(__('Notes'),'notes')->hideFromIndex()
+            Notes::make(__('Notes'),'notes')->fullWidth(), 
         ];
     }
 
@@ -300,8 +302,16 @@ class Maid extends Resource
             })->canRun(function ($request, $document) {
                 return $request->user()->hasAnyRole(['User']);
             }),
-            (new Actions\DownloadExcel())->withHeadings()->withFilename('Maids_' . now() . '.xlsx'),
-            (new Actions\AssignUser()),
+            (new Actions\DownloadExcel())->withHeadings()->withFilename('Maids_' . now() . '.xlsx')->canSee(function ($request) {
+                return $request->user()->hasAnyRole(['Super Admin','Admin','Staff']);
+            })->canRun(function ($request, $document) {
+                return $request->user()->hasAnyRole(['Super Admin','Admin','Staff']);
+            }),
+            (new Actions\AssignUser())->canSee(function ($request) {
+                return $request->user()->hasAnyRole(['Super Admin','Admin','Staff']);
+            })->canRun(function ($request, $document) {
+                return $request->user()->hasAnyRole(['Super Admin','Admin','Staff']);
+            }),
         ];
     }
 }

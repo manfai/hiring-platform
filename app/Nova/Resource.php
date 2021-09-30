@@ -56,4 +56,12 @@ abstract class Resource extends NovaResource
     {
         return parent::relatableQuery($request, $query);
     }
+
+    /**
+    * Indicates if the resource should be globally searchable.
+    *
+    * @var bool
+    */
+    public static $globallySearchable = false;
+
 }

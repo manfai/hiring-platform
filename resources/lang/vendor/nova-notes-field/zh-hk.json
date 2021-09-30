@@ -1,0 +1,12 @@
+{
+    "novaNotesField.defaultPlaceholder": "寫下任何備忘",
+    "novaNotesField.addNote": "留言",
+    "novaNotesField.showMoreNotes": "顯示所有筆記 (:hiddenNoteCount 更多)",
+    "novaNotesField.delete": "刪除",
+    "novaNotesField.deleteConfirmation": "你確定要刪除這條筆記嗎？",
+    "novaNotesField.cancel": "取消",
+    "novaNotesField.deleteNoteTitle": "刪除筆記",
+    "novaNotesField.systemUserAbbreviation": "SYS",
+    "novaNotesField.systemUserName": "系統"
+  }
+  

@@ -10,7 +10,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\Models\Media;
-use DigitalCloud\ModelNotes\HasNotes;
+// use DigitalCloud\ModelNotes\HasNotes;
+use OptimistDigital\NovaNotesField\Traits\HasNotes;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Tags\HasTags;
 
@@ -25,10 +26,13 @@ class Maid extends Model implements HasMedia
     protected $casts = [
         'dob' => 'date',
         'jpl_date' => 'date',
+        'cfm_date' => 'date',
         'medical_date' => 'date',
         'jo_rcv_date' => 'date',
         'mofa_rcv_date' => 'date',
         'flight_date' => 'date',
+        'passport_expired' => 'datetime',
+        'remark' => 'array',
     ];
 
     protected static function boot()
